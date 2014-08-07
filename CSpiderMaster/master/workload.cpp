@@ -14,16 +14,13 @@ WorkloadMaster::WorkloadMaster()
     m_status = 0;
     m_locker = PTHREAD_MUTEX_INITIALIZER;
     m_today = DateTime::Today();
-    //m_mysql = (MYSQL*)malloc(sizeof(MYSQL));
 }
 
 WorkloadMaster::~WorkloadMaster()
 {
-    //mysql_close(m_mysql);
     m_forbidden_sources.clear();
     m_tasks.clear();
     m_task_status.clear();
-    //delete m_mysql;
 }
 
 void WorkloadMaster::updateWorkload()
@@ -44,8 +41,8 @@ void WorkloadMaster::updateWorkload()
     oss << "SELECT workload_key, content, source FROM workload_" << m_today.ToString(string("yyyyMMdd")) << " WHERE timeslot = " << timeslot;
     //oss << "SELECT workload_key, content, source FROM workload_" << m_today.ToString(string("yyyyMMdd")) << " WHERE timeslot = " << timeslot << " or timeslot = " << timeslot+1;
     string sql = oss.str();
+    // 清空task任务和状态
     m_tasks.clear();
-    //_INFO("[ZHANGYANG, TASK STATUS SIZE IS %d]", m_task_status.size());
     m_task_status.clear();
     getTasksBySQL(sql, m_tasks);
     m_task_num = m_tasks.size();
@@ -121,7 +118,6 @@ bool WorkloadMaster::getTasksBySQL(const string& sql, TASK_MAP& tasks)
                 //if(sizeof(row)/sizeof(row[0]) != 3)
                 //    continue;
                 Task task;
-                //task.m_id = "-1";
                 task.m_workload_key = row[0];
                 task.m_content = row[1];
                 task.m_source = row[2];
@@ -138,6 +134,7 @@ bool WorkloadMaster::getTasksBySQL(const string& sql, TASK_MAP& tasks)
 
 bool WorkloadMaster::getLongtermTasks(TASK_MAP& tasks)
 {
+    // 31天到70天随机选择一天
     srand(time(NULL));
     int i = (rand() % 40) + 31;
     TimeSpan ts = TimeSpan(i, 0, 0, 0);
@@ -145,13 +142,13 @@ bool WorkloadMaster::getLongtermTasks(TASK_MAP& tasks)
     ostringstream oss;
     oss << "SELECT workload_key, content, source FROM workload_longterm WHERE crawl_day = " << dt.ToString(string("yyyyMMdd"));
     string longterm_sql = oss.str();
-    //cout << longterm_sql << endl;
     return getTasksBySQL(longterm_sql, tasks);
 }
 
 
 bool WorkloadMaster::getTasks(vector<Task*>& tasks, int count)
 {
+    // 统计未被分配的任务，可以改为成员变量
     int tasks_size = 0;
     for(TASK_MAP::iterator it = m_tasks.begin(); it != m_tasks.end(); ++it)
     {
@@ -165,14 +162,12 @@ bool WorkloadMaster::getTasks(vector<Task*>& tasks, int count)
 
         for(TASK_MAP::iterator it = m_tasks.begin(); it != m_tasks.end() && num < count; ++it)
         {
- //           _INFO("[ZHANGYANG, TASK STR IS %s, NUM IS %d]", (it->second).m_content.c_str(), num);
             if( (it->second).m_is_assigned == 1 )
                 continue;
             Task *task = new Task();
             task = &(it->second);
             tasks.push_back(task);
             num++;
-   //         _INFO("[ZHANGYANG, COMPLETE PUSHBACK %s]", (it->second).m_content.c_str());
             //m_tasks.erase(it);
             m_tasks[it->first].m_is_assigned = 1;
         }
@@ -210,12 +205,14 @@ bool WorkloadMaster::getTasks(vector<Task*>& tasks, int count)
 
 bool WorkloadMaster::getTask(Task& task)
 {
+    // 统计未被分配的任务，可以改为成员变量
     int tasks_size = 0;
     for(TASK_MAP::iterator it = m_tasks.begin(); it != m_tasks.end(); ++it)
     {
         if( (it->second).m_is_assigned != 1 )
             tasks_size++;
     }
+    
     if(tasks_size > 0)
     {
         // 常规任务没取完
@@ -287,11 +284,6 @@ string WorkloadMaster::assignTask(const string& source, int count)
             pthread_mutex_unlock(&m_locker);
             return "";
         }
-        // 更新状态 已抓取
-        if( m_task_status.find(task.m_workload_key) != m_task_status.end() )
-        {	
-            //m_task_status[task.m_workload_key][0] = "1";
-        }	
         pthread_mutex_unlock(&m_locker);
         return task.str();
     }
@@ -305,31 +297,10 @@ string WorkloadMaster::assignTask(const string& source, int count)
             pthread_mutex_unlock(&m_locker);
             return "";
         }
-        // 更新状态 已抓取
-        //_INFO("[ZHANGYANG get complete!]");
+        // task列表序列化
         string res_str = "[";
         for(vector<Task*>::iterator it = tasks.begin(); it != tasks.end(); ++it)
         {
-            /*
-            if( m_task_status.find((*it)->m_workload_key) != m_task_status.end() )
-            {	
-                m_task_status[it->m_workload_key][0] = "1";
-            }
-            */    
-            //Task task;
-            //task = *(*it);
-            /*
-            _INFO("[ZHANGYANG, TASK WORKLOAD_KEY IS %s]", (*it)->m_workload_key.c_str());
-            _INFO("[ZHANGYANG, TASK ID IS %s]", (*it)->m_id.c_str());
-            _INFO("[ZHANGYANG, TASK CONTENT IS %s]", (*it)->m_content.c_str());
-            _INFO("[ZHANGYANG, TASK SOURCE IS %s]", (*it)->m_source.c_str());
-            _INFO("[ZHANGYANG, TASK ERROR IS %d]", (*it)->m_error);
-            _INFO("[ZHANGYANG, TASK TIMESLOT IS %d]", (*it)->m_timeslot);
-            _INFO("[ZHANGYANG, TASK PRIORITY IS %d]", (*it)->m_priority);
-            _INFO("[ZHANGYANG, TASK SCORE IS %d]", (*it)->m_score);
-            _INFO("[ZHANGYANG, TASK UPDATE IS %d]", (*it)->m_update_times);
-            _INFO("[ZHANGYANG, TASK Success IS %d]", (*it)->m_success_times);
-            */
             res_str += (**it).str() + ",";
         }
         res_str.erase(res_str.end()-1);
@@ -348,33 +319,29 @@ bool WorkloadMaster::updateUpdateTimes(const string& workload_key)
 
 bool WorkloadMaster::updateSuccessTimes(const string& workload_key)
 {
-    ostringstream oss1, oss2;
-    oss1 << "UPDATE workload_longterm SET success_times = success_times + 1 WHERE workload_key = '" << workload_key << "'";
-    oss2 << "UPDATE workload_moniter_" << m_today.ToString(string("yyyyMMdd")) << " SET success_times = success_times +1, update_times = update_times + 1 WHERE workload_key = '" << workload_key << "'";
     // 更改状态，成功抓取
-    if(m_task_status[workload_key].size() != 5)
-    {
-        return false;
-    }
     m_task_status[workload_key][0] = "1";
     m_task_status[workload_key][1] = "1";
+    
     // 插入mysql
-    if(m_status == 1)
-        ;
-    //executeSQL(oss2.str());
-    else
-        ;
-    //executeSQL(oss1.str());
+    //ostringstream oss1, oss2;
+    //oss1 << "UPDATE workload_longterm SET success_times = success_times + 1 WHERE workload_key = '" << workload_key << "'";
+    //oss2 << "UPDATE workload_moniter_" << m_today.ToString(string("yyyyMMdd")) << " SET success_times = success_times +1, update_times = update_times + 1 WHERE workload_key = '" << workload_key << "'";
+    //if(m_status == 1)
+    //    executeSQL(oss2.str());
+    //else
+    //    executeSQL(oss1.str());
     return true;
 }
 
 bool WorkloadMaster::updateFailedTimes(const string& workload_key)
 {
-    ostringstream oss;
-    oss << "UPDATE workload_moniter_" << m_today.ToString(string("yyyyMMdd")) << " SET error_times = error_times +1, update_times = update_times + 1 WHERE workload_key = '" << workload_key << "'";
-    string fail_sql = oss.str();
-    //executeSQL(fail_sql);
+    // 更新状态，抓取一次，失败
     m_task_status[workload_key][0] = "1";
+    //ostringstream oss;
+    //oss << "UPDATE workload_moniter_" << m_today.ToString(string("yyyyMMdd")) << " SET error_times = error_times +1, update_times = update_times + 1 WHERE workload_key = '" << workload_key << "'";
+    //string fail_sql = oss.str();
+    //executeSQL(fail_sql);
     return true;
 }
 
@@ -395,13 +362,18 @@ void WorkloadMaster::completeTask(const string& workload_key, int error)
 }
 
 
-void WorkloadMaster::completeTask(const string& task_str)
+bool WorkloadMaster::completeTask(const string& task_str)
 {
     vector<Task*> tasks;
-    Task::parse(task_str, tasks);
+    if( !Task::parse(task_str, tasks) )
+    {
+        _ERROR("[IN completeTask: TASK PARSE ERROR!]");
+        return false;
+    }
     for(vector<Task*>::iterator it = tasks.begin(); it != tasks.end(); ++it)
     {
-        if(m_task_status.find( (*it)->m_workload_key ) == m_task_status.end()){
+        string workload_key = (*it)->m_workload_key;
+        if(m_task_status.find( workload_key ) == m_task_status.end()){
             // 添加上个时间槽的任务
             vector<string> status;
             status.push_back("0");
@@ -409,33 +381,29 @@ void WorkloadMaster::completeTask(const string& task_str)
             status.push_back("-1");
             status.push_back((*it)->m_content);
             status.push_back((*it)->m_source);
-            m_task_status[(*it)->m_workload_key] = status;
+            m_task_status[workload_key] = status;
+        }
+        if(m_task_status[workload_key].size() != 5){
+            // 验证解析是否正确
+            _INFO("[IN completeTask: TASK %s SIZE IS NOT 5!]", workload_key.c_str());
+            continue;
         }
         if((*it)->m_error == 0)
         {
             // 任务成功
-            if(m_task_status.find( (*it)->m_workload_key ) != m_task_status.end())
-            {
-                if(m_task_status[(*it)->m_workload_key].size() == 5){
-                    m_task_status[(*it)->m_workload_key][2] = "0";
-                    updateSuccessTimes((*it)->m_workload_key);
-                }
-            }
+            m_task_status[workload_key][2] = "0";
+            updateSuccessTimes(workload_key);
         }
         else
         {
             // 任务失败
             ostringstream oss;
             oss << (*it)->m_error;
-            if(m_task_status.find( (*it)->m_workload_key ) != m_task_status.end())
-            {
-                if(m_task_status[(*it)->m_workload_key].size() == 5){
-                    m_task_status[(*it)->m_workload_key][2] = oss.str();
-                    updateFailedTimes((*it)->m_workload_key);
-                }
-            }
+            m_task_status[workload_key][2] = oss.str();
+            updateFailedTimes(workload_key);
         }
     }
+    return true;
 }
 
 
@@ -488,17 +456,17 @@ void  WorkloadMaster::monitorTasks(int timeslot)
         if(error_type == "-1")
             continue;
         Json::Value source_error_map = error_map[source];
-        /*
-           if(!source_error_map.isMember(error_type))
-           {
-           source_error_map[error_type]=0;
-           }
-           else{
-           source_error_map[error_type] = source_error_map[error_type].asInt() + 1;
-           }
-           */
         source_error_map[error_type] = source_error_map.get(error_type, 0).asInt() + 1;
         error_map[source] = source_error_map;
+        /*
+        if(!source_error_map.isMember(error_type))
+        {
+           source_error_map[error_type]=0;
+        }
+        else{
+           source_error_map[error_type] = source_error_map[error_type].asInt() + 1;
+        }
+        */
     }
     Json::FastWriter jfw;
     string error_info = jfw.write(error_map);

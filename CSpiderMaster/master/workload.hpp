@@ -73,7 +73,7 @@ class WorkloadMaster
         /* 响应slave请求，完成任务
          * @param: json格式的task
          */
-        void completeTask(const string& task);
+        bool completeTask(const string& task);
 
         void completeTask(const string& workload_key, int error);
 
