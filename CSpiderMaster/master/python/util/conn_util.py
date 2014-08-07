@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+#coding=GBK
+'''
+    Created on 2014-02-23
+    @author: devingong
+    @desc:
+        
+'''
+
+from socket import error as SocketError
+
+try:
+    from select import poll, POLLIN
+except ImportError:  # `poll` doesn't exist on OSX and other platforms
+    poll = False
+    try:
+        from select import select
+    except ImportError:  # `select` doesn't exist on AppEngine.
+        select = False
+
+
+def is_connection_dropped(conn):  # Platform-specific
+    """
+        Returns True if the connection is dropped and should be closed.
+
+        :param conn:
+            :class:`httplib.HTTPConnection` object.
+        Note: For platforms like AppEngine, this will always return ``False`` to
+        let the platform handle connection recycling transparently for us.
+
+        Get from urllib3.
+    """
+    sock = getattr(conn, 'sock', False)
+    if not sock: # Platform-specific: AppEngine
+        return False
+
+    if not poll:
+        if not select: # Platform-specific: AppEngine
+            return False
+        
+        try:
+            return select([sock], [], [], 0.0)[0]
+        except SocketError:
+            return True
+
+    # This version is better on platforms that support it.
+    p = poll()
+    p.register(sock, POLLIN)
+    for (fno, ev) in p.poll(0.0):
+        if fno == sock.fileno():
+            # Either data is buffered (bad), or the connection is dropped.
+            return True
+
+    return False
+
+
+if __name__  == "__main__":
+    import httplib
+    conn = httplib.HTTPConnection("www.baidu.com", 80)
+    conn.connect()
+
+    print is_connection_dropped(conn)
+
+    conn.close()
+    print is_connection_dropped(conn)
+
