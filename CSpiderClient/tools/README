@@ -1,0 +1,17 @@
+
+requests:
+cd tools/kennethreitz-requests-338c5f6/
+    python setup.py build
+    python setup.py install
+
+MySQLdb:
+    cd tools/MySQL-python-1.2.3/
+
+    首先需要安装几个mysql的相关
+    yum list | grep mysql
+    yum install libmysqlclient-dev
+    yum install mysql_devel.x86_64
+    yum install mysql_libs.x86_64
+    
+    python setup.py build
+    python setup.py install

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="description" content="携程旅行网为您提供北京到上海特价机票以及北京到上海航班查询。携程旅行网于2003年在美国纳斯达克上市，拥有覆盖全国的服务网络。提供国内国际各大航空公司的航线航班，安全支付值得信赖，是您网上订购北京到上海机票的首选。免费咨询800-820-6666。" />
+<meta name="keywords" content="北京到上海特价，北京到上海机票预订，北京到上海航班查询，携程机票" />
+<title>北京到上海机票预订 - 北京到上海特价机票 - 北京到上海航班查询预订 - 携程国内机票预订</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <link rel="canonical" href="http://flights.ctrip.com/booking/BJS-SHA-day-1.html"/>
+    <link href="http://webresource.c-ctrip.com/ResFlightOnline/R1/booking/css/fltdomestic111027/searchresult_v1.5.css?ReleaseNo=CR2014_04_09_20_52_00" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+    
+        <script type="text/javascript">
+            function ajaxRequest(n) { var t = null, r, i, u; if (typeof XMLHttpRequest != "undefined") t = new XMLHttpRequest; else if (typeof ActiveXObject != "undefined") { if (typeof arguments.callee.aciveXString != "string") for (r = ["MSXML2.XMLHttp.6.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp"], i = 0, u = r.length; i < u; i++) try { t = new ActiveXObject(r[i]); arguments.callee.activeXString = r[i]; break } catch (f) { } t == null && (t = new ActiveXObject(arguments.callee.activeXString)) } t.onreadystatechange = function () { try { if (t.readyState == 4) if (t.status >= 200 && t.status < 300 || t.status == 304) { var n = eval("(" + t.responseText + ")"); jsonCallback.done(n) } else t.status != 0 && jsonCallback.onError() } catch (i) { jsonCallback.onError() } }; n = n.replace(/^[\s\xA0]+|[\s\xA0]+$/g, ""); n += n.indexOf("?") > -1 ? "&r=" + Math.random() : "?r=" + Math.random(); t.open("GET", n, !0); t.send(null) } var jsonCallback = { isError: !1, isReady: !1, data: {}, readyList: [], errorList: [], ready: function (n) { this.isReady == !1 ? this.readyList.push(n) : n(this.data) }, done: function (n) { this.isReady = !0; this.data = n; for (var t = 0; this.readyList[t]; ) this.readyList[t](n), t++ }, error: function (n) { this.isError == !1 ? this.errorList.push(n) : n() }, onError: function () { this.isError = !0; for (var n = 0; this.errorList[n]; ) this.errorList[n](), n++ } }
+            ajaxRequest("http://flights.ctrip.com/domesticsearch/search/SearchFirstRouteFlights?DCity1=BJS&ACity1=SHA&SearchType=S&DDate1=2014-05-10");
+        </script>
+
+    <input type="hidden" id="CorrelationId" name="CorrelationId" value="5066533011710757279"/><link href="http://webresource.c-ctrip.com/ResCRMOnline/r1/pageheader/css/pageheader.css?temp=20140409" rel="stylesheet" />
+	
+    
+    <div id="cui_hd" class="cui_hd">
+  <div class="ctriplogo"><a href="http://www.ctrip.com" title="携程旅行网">携程旅行网</a></div>
+  <div class="cui_toolkit"><a id="cui_lang_en" class="cui_lang_en" href="http://english.ctrip.com/" rel="nofollow">English</a>
+        |
+		<div class="cui_lang" onmouseover="this.className='cui_lang cui_lang_hover'" onmouseout="this.className='cui_lang'"><b></b><div id="cui_lang_list" class="cui_lang_list"><a class="cui_lang_gb" href="http://www.ctrip.com">简体版</a><a class="cui_lang_big5" rel="nofollow" href="http://big5.ctrip.com">繁体版</a><a class="cui_lang_jap" rel="nofollow" href="http://jp.ctrip.com/">日语版</a><a class="cui_lang_korea" rel="nofollow" href="http://kr.ctrip.com/">韩语版</a><a href="http://de.ctrip.com/" rel="nofollow" class="cui_lang_de">Deutsch</a><a href="http://fr.ctrip.com/" rel="nofollow" class="cui_lang_fr">Fran&#xE7;ais</a><a href="http://es.ctrip.com/" rel="nofollow" class="cui_lang_es">Espa&#xF1;ol</a><a href="http://ru.ctrip.com/" rel="nofollow" class="cui_lang_ru">Русский</a><a href="http://vn.ctrip.com/" rel="nofollow" class="cui_lang_vn">Tiêng Viêt</a></div>
+    </div><a class="cui_help" target="_blank" rel="nofollow" href="http://kefu.ctrip.com">客服中心
+          </a> |
+        </div>
+  <div onmouseover="this.className='cui_tel cui_tel_hover'" onmouseout="this.className='cui_tel'" onclick="this.className='cui_tel cui_tel_hover'" class="cui_tel"><b></b><span class="cui_tel_in" title="免境内长话费">
+              国内：<i>1010-6666</i></span><div class="cui_tel_more"><span class="cui_tel_in">
+                国内（座机拨打）：<i>800-820-6666</i></span><span class="cui_tel_in">
+                香港：<i>852-3610-6666</i></span><span class="cui_tel_in">
+                海外：<i>+86-21-3406-4888</i></span></div>
+  </div>
+  <div id="head_float_level" class="cui_wireless"><a class="cui_wireless_pic">携程无线<i></i></a></div>
+  <div class="cui_pagehead_pic"></div>
+  <div class="cui_top_pic"><i class="cui_ico_hot"></i></div>
+</div>
+<div id="cui_nav">
+  <div class="base_nav">
+    <ul id="cui_nav_ul" class="cui_nav">
+      <li id="cui_nav_home"><a title="首页" class="cui_nav_non" href="http://www.ctrip.com"><span>首页</span></a></li>
+      <li class="sep"></li>
+      <li id="cui_nav_hotel"><a id="a_hotelLink" title="酒店" class="cui_nav_hotel cui_nav_has" href="http://hotels.ctrip.com"><span>酒店</span><i class="cui_ico_triangle"></i></a><div class="cui_subnav_wrap">
+          <div class="cui_sub_nav" id="div_hotel"><a title="国内酒店" href="http://hotels.ctrip.com">国内酒店
+                </a>|<a title="海外酒店" href="http://hotels.ctrip.com/international/">海外酒店
+                </a>|<a title="惠选酒店" href="http://huixuan.ctrip.com">惠选酒店
+                </a>|<a title="机+酒" href="http://package.ctrip.com">机+酒
+                </a>|<a title="团购" href="http://tuan.ctrip.com">团购
+                </a>|<a rel="nofollow" title="特价超市" href="http://hotels.ctrip.com/hotsale">特价超市
+                </a>|<a rel="nofollow" title="途家公寓" href="http://hotels.ctrip.com/tujia/">途家公寓
+                </a></div><a class="cui_ico_order" rel="nofollow" href="http://my.ctrip.com/Home/Order/HotelOrderList.aspx">酒店订单 &gt;
+              </a></div>
+      </li>
+      <li class="sep"></li>
+      <li id="cui_nav_vac"><a id="a_vacationLink" title="旅游" class="cui_nav_vac cui_nav_has" href="http://vacations.ctrip.com"><span>旅游</span><i class="cui_ico_triangle"></i></a><div class="cui_subnav_wrap">
+          <div class="cui_sub_nav" id="div_vacation"><a title="旅游首页" href="http://vacations.ctrip.com">旅游首页
+                </a>|<a title="周末/短途游" rel="nofollow" href="http://you.ctrip.com/around">周末/短途游
+                </a>|<a title="国内旅游" rel="nofollow" href="http://vacations.ctrip.com/domestic/">国内旅游
+                </a>|<a title="出境旅游" href="http://vacations.ctrip.com/international/">出境旅游
+                </a>|<a title="邮轮" href="http://cruise.ctrip.com/">邮轮
+                </a>|<a title="景+酒" href="http://taocan.ctrip.com/sh/">景+酒<span class="cui_ico_new"></span></a>|<a title="门票" href="http://piao.ctrip.com">门票
+                </a>|<a title="用车" href="http://car.ctrip.com">用车
+                </a>|<a title="游学" href="http://vacations.ctrip.com/youxue">游学
+                </a>|<a title="签证" href="http://vacations.ctrip.com/visa">签证
+                </a>|<a title="欧铁" href="http://vacations.ctrip.com/outie">欧铁
+                </a>|<a title="包团定制" rel="nofollow" href="http://vacations.ctrip.com/mice/abouts">包团定制
+                </a>|<a title="顶级游" href="http://www.hhtravel.com/" rel="nofollow">顶级游</a></div><a class="cui_ico_order" rel="nofollow" href="http://my.ctrip.com/Home/Order/PkgOrderList.aspx">旅游度假订单 &gt;
+              </a></div>
+      </li>
+      <li class="sep"></li>
+      <li id="cui_nav_flight" class="cui_nav_current"><a id="a_flightLink" title="机票" class="cui_nav_flight cui_nav_has" href="http://flights.ctrip.com"><span>机票</span><i class="cui_ico_triangle"></i></a><div class="cui_subnav_wrap">
+          <div id="div_flight" class="cui_sub_nav"><a title="国内机票" class="cui_sub_current" href="http://flights.ctrip.com">国内机票
+                </a>|<a title="国际机票" href="http://flights.ctrip.com/international/">国际机票
+                </a>|<a title="机+酒" href="http://package.ctrip.com">机+酒
+                </a>|<a title="航班看板" href="http://flights.ctrip.com/actualtime/">航班看板
+                </a>|<a rel="nofollow" title="机场攻略" href="http://flights.ctrip.com/booking/airport-guides.html">机场攻略
+                </a>|<a rel="nofollow" title="网上选座" href="http://flights.ctrip.com/domestic/MyToolBox/BookSeatDemo.aspx">网上选座
+                </a>|<a rel="nofollow" title="退票改签" href="http://my.ctrip.com/Home/Order/FlightOrderList.aspx">退票改签
+                </a></div><a class="cui_ico_order" rel="nofollow" href="http://my.ctrip.com/Home/Order/FlightOrderList.aspx">机票订单 &gt;
+              </a></div>
+      </li>
+      <li class="sep"></li>
+      <li id="cui_nav_trains"><a title="火车" class="cui_nav_non" href="http://trains.ctrip.com"><b></b><span>火车</span></a></li>
+      <li class="sep"></li>
+      <li id="cui_nav_car"><a href="http://car.ctrip.com/?ctm_ref=chp_var_txt" class="cui_nav_hotel cui_nav_has"><span>用车</span><i class="cui_ico_triangle"></i></a><div class="cui_subnav_wrap">
+          <div class="cui_sub_nav"><a title="用车首页" href="http://car.ctrip.com?ctm_ref=chp_var_txt&#xD;&#xA;                  ">用车首页
+                  </a>|<a title="接送机/专车" href="http://car.ctrip.com/daijia?ctm_ref=chp_var_txt&#xD;&#xA;                  ">接送机/专车
+                  </a>|<a title="海外自驾" href="http://car.ctrip.com/hwzijia?ctm_ref=chp_var_txt&#xD;&#xA;                    ">海外自驾
+                  </a>|<a title="国内自驾" href="http://car.ctrip.com/zijia?ctm_ref=chp_var_txt&#xD;&#xA;                    ">国内自驾
+                  </a></div><a class="cui_ico_order" rel="nofollow" href="&#xD;&#xA;                  http://my.ctrip.com/Home/Order/CarOrderList.aspx&#xD;&#xA;                ">用车订单 &gt;
+              </a></div>
+      </li>
+      <li class="sep"></li>
+      <li id="cui_nav_ticket"><a title="门票" class="cui_nav_non" href="http://piao.ctrip.com"><b></b><span>门票</span></a></li>
+      <li class="sep"></li>
+      <li id="cui_nav_tuan"><a class="cui_nav_non" href="http://tuan.ctrip.com"><span>团购</span></a></li>
+      <li class="sep"></li>
+      <li id="cui_nav_destination01"><a title="攻略社区" class="cui_nav_non" href="http://you.ctrip.com"><b></b><span>攻略社区</span></a></li>
+      <li class="sep"></li>
+      <li id="cui_nav_destination02"><a title="礼品卡" rel="nofollow" class="cui_nav_non" href="http://lipin.ctrip.com"><b></b><span>礼品卡</span></a></li>
+      <li class="sep"></li>
+      <li id="cui_nav_destination03"><a title="商旅" rel="nofollow" class="cui_nav_non" href="http://www.ctrip.com/crptravel/"><b></b><span>商旅</span></a></li>
+      <li class="sep"></li>
+      <li id="cui_nav_more"><a rel="nofollow" id="a_moreLink" title="更多" class="cui_nav_more cui_nav_has" href="http://lipin.ctrip.com/Online/ypbooking/help/xcb_introduce.aspx"><span>更多</span><i class="cui_ico_triangle"></i></a><div class="cui_subnav_wrap">
+          <div class="cui_sub_nav" id="div_more"><a title="携程宝" rel="nofollow" href="http://lipin.ctrip.com/Online/ypbooking/help/xcb_introduce.aspx">携程宝
+                </a>|<a title="积分奖励" rel="nofollow" href="http://accounts.ctrip.com/rewards">积分奖励
+				</a>|<a title="旅行口碑榜" rel="nofollow" href="http://top.ctrip.com">旅行口碑榜  
+                </a>|<a rel="nofollow" title="特卖汇" href="http://bestdeals.ctrip.com">特卖汇
+                </a>|<a title="合作卡" rel="nofollow" href="http://cards.ctrip.com">合作卡<i class="cui_ico_hot"></i></a>|<a title="订餐" rel="nofollow" href="http://dining.ctrip.com">
+                  订餐
+                </a></div>
+        </div>
+      </li>
+      <li id="loginDivLi" class="cui_myctrip">
+        <div id="div_LoginShow" style="display:none;"><span class="cui_myctrip_status" id="usernameId"><a rel="nofollow" href="http://my.ctrip.com/myctrip/">我的携程
+                </a></span><b></b><a href="" class="cui_links_exit">退出</a></div>
+        <div id="notLogin"></div>
+        <div class="cui_account" id="notLoginDiv" style="display:none;">
+          <div class="cui_account_info"><a rel="nofollow" href="http://my.ctrip.com/Home/Order/FlightOrderList.aspx">机票订单
+                </a><a rel="nofollow" href="http://my.ctrip.com/Home/Order/HotelOrderList.aspx">酒店订单
+                </a><a rel="nofollow" href="http://my.ctrip.com/Home/Order/PkgOrderList.aspx">旅游度假订单
+                </a><a rel="nofollow" class="gray" href="http://accounts.ctrip.com/myctrip/order/FastOrder.aspx">非会员订单
+                </a></div>
+          <div class="cui_account_info"><a rel="nofollow" href="https://sinfo.ctrip.com/MyInfo/AccountCenter/UserInfoUpdate.aspx">我的信息
+                </a><a rel="nofollow" href="https://sinfo.ctrip.com/MyInfo/AccountCenter/MyMileage.aspx">我的积分
+                </a><a rel="nofollow" href="https://sinfo.ctrip.com/Balance/zh-cn/CashAccount.aspx">现金账户
+                </a><a rel="nofollow" href="http://my.ctrip.com/Home/Order/OrderReviewList.aspx">我的点评
+                </a></div>
+        </div>
+        <div class="cui_account" id="loginDiv" style="display:none;">
+          <div id="div_user"></div>
+          <div class="cui_account_info"><a rel="nofollow" href="http://my.ctrip.com/Home/Order/FlightOrderList.aspx">机票订单
+                </a><a rel="nofollow" href="http://my.ctrip.com/Home/Order/HotelOrderList.aspx">酒店订单
+                </a><a rel="nofollow" href="http://my.ctrip.com/Home/Order/PkgOrderList.aspx">旅游度假订单
+                </a><a rel="nofollow" class="gray" href="http://accounts.ctrip.com/myctrip/order/FastOrder.aspx">非会员订单
+                </a></div>
+          <div class="cui_account_info"><a rel="nofollow" href="https://sinfo.ctrip.com/MyInfo/AccountCenter/UserInfoUpdate.aspx">我的信息
+                </a><a rel="nofollow" href="https://sinfo.ctrip.com/MyInfo/AccountCenter/MyMileage.aspx">我的积分
+                </a><a rel="nofollow" href="https://sinfo.ctrip.com/Balance/zh-cn/CashAccount.aspx">现金账户
+                </a><a rel="nofollow" href="http://my.ctrip.com/Home/Order/OrderReviewList.aspx">我的点评
+                </a></div>
+        </div>
+      </li>
+    </ul>
+  </div><input type="hidden" id="siteDomainHeadFloat" value="ctrip"><input type="hidden" id="bsType" value="0"><div id="nav_bh" class="cui_nav_behind" style="display:none;height:0px;"></div>
+</div><script type="text/javascript">
+(function () {
+;window.replace=function(){return ''};(function(){var D=document,$=function(id){return D.getElementById(id)},st=null,st2=null,lazyTime=0,lis=[$("cui_nav_hotel"),$("cui_nav_car"),$("cui_nav_vac"),$("cui_nav_flight"),$("cui_nav_more")],E={onmouseenter:function(o,f){if(D.all){o.onmouseenter=f
+}else{o.onmouseover=function(e){(e.relatedTarget==null?f():(!(this===e.relatedTarget||this.compareDocumentPosition(e.relatedTarget)==20)&&f()))
+}}},onmouseout:function(o,f){if(D.all){o.onmouseleave=f}else{o.onmouseout=function(e){(e.relatedTarget==null?f():(!(this===e.relatedTarget||this.compareDocumentPosition(e.relatedTarget)==20)&&f()))
+}}},addEvent:function(el,type,handler){if(el.addEventListener){el.addEventListener(type,handler,false)
+}else{if(el.attachEvent){el.attachEvent("on"+type,handler)}else{el["on"+type]=handler}}}},F={setTime:function(){E.onmouseenter($("cui_nav"),function(){setTimeout(function(){lazyTime=150
+},30)});E.onmouseout($("cui_nav"),function(){lazyTime=0})},initEvent:function(){for(var i=0,len=lis.length;
+i<len;i++){(function(){var j=i;E.onmouseenter(lis[j],function(){F.interFn(lis[j])});E.onmouseout(lis[j],function(){F.outerFn(lis[j])
+})})(i)}},reset:function(){for(var i=0,len=lis.length;i<len;i++){if(lis[i].className.indexOf("cui_nav_current")>-1){lis[i].className="cui_nav_current"
+}else{lis[i].className=""}}},padReset:function(j){for(var i=0,len=lis.length;i<len;i++){if(lis[i].className.indexOf("cui_nav_current")>-1){lis[i].className="cui_nav_current"
+}else{if(i!==j){lis[i].className=""}}}},interFn:function(obj){var nodes=document.getElementById("cui_nav").getElementsByTagName("li");
+var node="";for(var i=0;i<nodes.length;i++){if(nodes[i].className.match((/cui_nav_current/))){var node=nodes[i]
+}}if(st2!=null){clearTimeout(st2);st2=null}st=setTimeout(function(){F.reset();if(obj.className.indexOf("cui_nav_current")>-1){}else{obj.className="cui_nav_o";
+node.className="cui_nav_current cui_nav_unhover"}},lazyTime)},outerFn:function(obj){var nodes=document.getElementById("cui_nav").getElementsByTagName("li");
+var node="";for(var i=0;i<nodes.length;i++){if(nodes[i].className.match((/cui_nav_current/))){var node=nodes[i]
+}}if(st!=null){clearTimeout(st);st=null}st2=setTimeout(function(){F.reset();if(obj.className.indexOf("cui_nav_current")>-1){obj.className="cui_nav_current"
+}else{obj.className="";node.className="cui_nav_current"}},250)},initMobile:function(){for(var i=0,len=lis.length;
+i<len;i++){(function(){var j=i;var oneLevel=lis[j].getElementsByTagName("A")[0];oneLevel.href="###";oneLevel.onmousedown=function(){F.padReset(j);
+if(lis[j].className.indexOf("cui_nav_current")===-1){if(lis[j].className.indexOf("cui_nav_o")>-1){lis[j].className="";
+document.getElementsByClassName("cui_nav_current")[0].className="cui_nav_current";oneLevel.style.visibility="hidden";
+setTimeout(function(){oneLevel.style.visibility="visible"},10)}else{lis[j].className="cui_nav_o";document.getElementsByClassName("cui_nav_current")[0].className="cui_nav_current";
+document.getElementsByClassName("cui_nav_current")[0].className+=" cui_nav_unhover"}}}})(i)}},contains:function(target){for(var i=0,len=lis.length;
+i<len;i++){if(lis[i].compareDocumentPosition(target)-19>0){return true}}return false}};if($("headStyleId")){$("headStyleId").parentNode.removeChild($("headStyleId"))
+}if((/ip(hone|od)|ipad/i).test(navigator.userAgent)){F.initMobile();E.addEvent(D.body,"click",function(e){var target=e.target||e.srcElement;
+if(!F.contains(target)){F.reset()}})}else{F.setTime();F.initEvent()}})();
+})();
+</script>
+    <div id="base_bd">
+        
+<div class="head_crumb clearfix">
+    <a class="search_flthotel" id="flthotelLink" onclick="AirHotel.redirectToPackageAction();" href="javascript:void(0);">机+酒</a> <a href="http://flights.ctrip.com/">国内机票</a> &gt; 北京到上海机票（单程）
+</div>
+
+<form id="reSearchForm">
+<div id="search_form" class="search_form clearfix">
+    <div class="flight_way">
+        <select id="FlightSearchType">
+            <option value="S">单程</option>
+            <option value="D">往返</option>
+            <option value="M">联程</option>
+        </select>
+    </div>
+    <div class="flight_attribute">
+        <ul>
+            <li>
+                <strong class="multiway" style="display: none;">第一程：</strong> 出发城市 <input type="text" id="DCityName1" name="DCityName1" mod="address|notice" mod_address_tpl="on" mod_address_reference="DCity1" placeholder="中文/拼音" mod_address_source="flight_new" />
+                <a class="swapcity ico_change2" title="互换出发到达城市" href="javascript:void(0);"></a><span class="lblACity">到达城市</span> <input type="text" id="ACityName1" name="ACityName1" mod_address_reference="ACity1" mod_address_tpl="on" mod="address|notice" mod_address_source="flight_new" placeholder="中文/拼音" />
+                出发日期 <input id="DDate1" name="DDate1" type="text" value="" mod="calendar|notice" placeholder="yyyy-mm-dd" />
+                <span class="returndate">返回日期 <input type="text" id="ReturnDate1" name="ReturnDate1" mod="calendar|notice" placeholder="yyyy-mm-dd" />
+                </span>
+            </li>
+            <li class="search_m second_line" style="display: none;">
+                <span><strong>第二程：</strong> 中转城市 <input type="text" disabled="disabled" id="DCityName2" /></span> <span>到达城市 <input type="text" id="ACityName2" name="ACityName2" mod_address_tpl="on" mod_address_focusnext="true" mod_address_reference="ACity2" mod="address|notice" mod_address_source="flight_new" placeholder="中文/拼音" autocomplete="off" /></span> <span>出发日期 <input type="text" id="DDate2" name="DDate2" mod="calendar|notice" placeholder="yyyy-mm-dd" />
+                </span>
+            </li>
+        </ul>
+        <div class="type_number_line" id="advanceOption" style="display: none;">
+            <span style="padding-left: 24px; text-align: right;">人数</span>
+            <select id="PassengerQuantity" name="PassengerQuantity">
+                <option value="1" selected="selected">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+            <span id="passengerType_label">乘客类型</span>
+            <select id="PassengerType" name="PassengerType">
+                <option value="ADU" selected="selected">成人</option>
+                <option value="CHI">儿童(2-12周岁)</option>
+                <option value="BAB">婴儿(2周岁以下)</option>
+            </select>
+            <span>舱位等级</span>
+            <select id="ClassType" name="ClassType">
+                <option value="">经济舱</option>
+                <option value="CF">公务舱/头等舱</option>
+            </select>
+        </div>
+    </div>
+    <div class="search_tools clearfix" id="searchBtns">
+        <input type="button" value="重新搜索" style="display:" class="btn_search" id="btnReSearch" />
+        <a rel="nofollow" id="advancedSearch" style="display:" class="arrow_down" href="javascript:void(0);">高级搜索<b></b></a>
+    </div>
+    <input id="DCity1" name="DCity1" type="hidden" />
+    <input id="ACity1" name="ACity1" type="hidden" />
+    <input id="DCity2" name="DCity2" type="hidden" />
+    <input id="ACity2" name="ACity2" type="hidden" />
+</div>
+</form>
+
+<div class="base_main">
+<div id="searchLoading" style="height: 160px; text-align: center;">
+    <p style="color: #333; padding: 5px 0;">正在为您搜索航班信息...</p>
+    <i class="ico_loading"></i>
+    <p style="color: #999; padding: 5px 0;">携程在手，说走就走</p>
+</div>
+        <div id="searchError">
+        </div>
+    <!-- 无机场直飞提示信息 -->
+    
+    <div id="searchPannel" style="display: none;">
+        
+        
+            <!-- 查询结果展示 -->
+<div id="searchControlPannel">
+    <div class="calendar_tab calendar_panel clearfix" style="overflow: hidden;">
+        <div id="prevDate" class="prev_date">
+            <a class="arrow_left_disable" rel="nofollow" href="javascript:void(0);"><b></b></a>
+        </div>
+        <div style="float: left; width: 748px; overflow: hidden; position: relative;">
+            <ul id="lowestPriceDateList" class="calendar_ul clearfix" style="position: relative; left: 0;">
+            </ul>
+        </div>
+        <div id="nextDate" class="next_date">
+            <a class="arrow_right" rel="nofollow" href="javascript:void(0)"><b></b></a>
+        </div>
+        <div class="panel_link">
+            <a id="lowestPriceLink" href="javascript:void(0);" class="days90" target="_blank"></a>
+        </div>
+    </div>
+    <div class="search_filter clearfix">
+        <div class="filter_side">
+            <label id="showTransferFilter"><input class="input_checkbox" type="checkbox" id="filterTransit" />
+                仅查看直飞 </label>
+            <label id="showCFFilter"><input class="input_checkbox" type="checkbox" id="filterCFClass" />
+                仅查看公务舱/头等舱 </label>
+        </div>
+        <ul class="filter_condition clearfix">
+            <li>
+                <a class="filter_trigger arrow_down" href="javascript:void(0);">起飞时段<b></b></a>
+                <div class="filter_list" style="*width: 130px;">
+                    <h4 class="arrow_up">起飞时段<b></b></h4>
+                    <ul>
+                        <li>
+                            <label><input class="input_checkbox" type="checkbox" title="上午" value="mo" name="flight_DTime" />
+                                上午(6-12点) </label>
+                        </li>
+                        <li>
+                            <label><input class="input_checkbox" type="checkbox" title="中午" value="mi" name="flight_DTime" />
+                                中午(12-13点) </label>
+                        </li>
+                        <li>
+                            <label><input class="input_checkbox" type="checkbox" title="下午" value="af" name="flight_DTime" />
+                                下午(13-18点) </label>
+                        </li>
+                        <li>
+                            <label><input class="input_checkbox" type="checkbox" title="晚上" value="ev" name="flight_DTime" />
+                                晚上(18-24点) </label>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li id="filterAirelineCompany">
+                <a class="filter_trigger arrow_down" href="javascript:void(0);">航空公司<b></b></a>
+                <div class="filter_list" style="*width: 100px;">
+                    <h4 class="arrow_up">航空公司<b></b></h4>
+                    <ul id="filterAirelineCompanyList">
+                    </ul>
+                </div>
+            </li>
+            <li id="filterCraftType">
+                <a class="filter_trigger arrow_down" href="javascript:void(0);">计划机型<b></b></a>
+                <div class="filter_list" style="*width: 100px;">
+                    <h4 class="arrow_up">计划机型<b></b></h4>
+                    <ul id="filterCraftTypeList">
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div style='display: none;' id="filterConditionShow" class="filter_choosen clearfix">
+            <h4>筛选条件：</h4>
+            <a href="javascript:void(0);" id='filterClear'>清除</a>
+        </div>
+    </div>
+    <div class="search_sort">
+        <h3>共 <strong id="flightCount">0</strong> 条航班信息 </h3>
+        <a id="dtime_sort" class="sort_btn current" title="起飞时间从早到晚" field="dtime" cmd="sort" href="javascript:void(0);">时间从早到晚<b></b></a> <a class="sort_btn" id="price_sort" title="价格从低到高" field="price" cmd="sort" href="javascript:void(0);">价格从低到高(不含税)<b></b></a>
+    </div>
+</div>
+            <div class="searchresult_content">
+            </div>   
+
+<div style="display: none; width: 480px" id="jmp_table">
+    <table class="pubJmpInfo_romList01" style="width: 480px">
+        <tbody>
+            <tr>
+                <th>计划机型 </th>
+                <th>机型名称 </th>
+                <th>类型 </th>
+                <th>最少座位数 </th>
+                <th class="pubJmpInfo_romList01_ritBorder">最多座位数 </th>
+            </tr>
+            <tr>
+                <td id="array1">
+                    ${txt0}
+                </td>
+                <td id="array2">
+                    ${txt1}
+                </td>
+                <td id="array3">
+                    ${txt2}
+                </td>
+                <td id="array4">
+                    ${txt3}
+                </td>
+                <td id="array5" class="pubJmpInfo_romList01_ritBorder">
+                    ${txt4}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="display: none" id="jmp_title">
+    <div class="jmp_hd" style="width: 280px">
+        <h3>${txt0}</h3>
+    </div>
+    <div class="jmp_bd" style="width: 260px">
+        ${txt1}</div>
+</div>
+<!--没有title-->
+<div id="jmp_text" style="display: none" class="base_jmp jmp_text base_jmp_t">
+    <div class="jmp_bd">
+        ${txt0}</div>
+</div>
+
+        <div id="recommendProducts">
+        </div>
+        <!-- 有低价早知道 -->
+            <div class="recommend_box">
+        <h3>有低价早知道</h3>
+        <p class="lowcost_remind">价格还不够低？订阅低价提醒，率先掌握低价信息。<input id="btn_remind" onclick="window.open($(this).attr('url'))" type="button" value="立刻订阅" class="btn_white"></p>
+    </div>
+
+        <!-- 参考准点率免责声明 -->
+        <div class="disclaimer">
+    <h3>航班信息免责声明:</h3>
+    <p>携程旅行网提供的各类航班相关的信息，包括但不限于舱位价格、餐食、起降准点率等，来源于中国航信、全国各大机场、航空公司及相关部门公布数据。由于这些信息可能随时变化，以及网络传输问题，携程提供的此类信息可能并非最新或存在误差，因此<b>仅供旅客作为一般参考</b>，任何公司或个人不能将此作为携程做出任何承诺或做出任何保证的依据。</p>
+</div>
+
+        <!-- SEO:查询结果页眉毛设置 -->
+            <div class="base_crumb">
+        <a href="http://flights.ctrip.com">国内机票查询</a>&nbsp;| <a href="http://flights.ctrip.com/booking/bjs-BEIJING-flights.html">北京</a>&nbsp;| <a href="http://flights.ctrip.com/booking/BJS-SHA-day-1.html">北京到上海</a>&nbsp;|
+        <span>北京到上海5月10日</span>
+    </div>
+    <div class="data_travelsky">
+        <span></span>数据信息由<br />
+        中国民航信息网络股份有限公司提供
+    </div>
+
+    </div>
+    <!-- SEO:搜索无结果SEO区块 -->
+        <div id="noresult_seo" style="display:none;">    
+        <div class="none_seo">
+            <div class="title">
+                国内热门机票</div>
+            <p class="link">
+                <a href="http://flights.ctrip.com/booking/CTU-SHA-day-1.html" title="成都到上海机票" target="_blank">成都到上海机票</a> 
+                <a href="http://flights.ctrip.com/booking/BJS-CTU-day-1.html" title="北京到成都机票" target="_blank">北京到成都机票</a> 
+                <a href="http://flights.ctrip.com/booking/BJS-SZX-day-1.html" title="北京到深圳机票" target="_blank">北京到深圳机票</a> 
+                <a href="http://flights.ctrip.com/booking/CTU-BJS-day-1.html" title="成都到北京机票" target="_blank">成都到北京机票</a> 
+                <a href="http://flights.ctrip.com/booking/CAN-BJS-day-1.html" title="广州到北京机票" target="_blank">广州到北京机票</a> 
+                <a href="http://flights.ctrip.com/booking/TAO-SHA-day-1.html" title="青岛到上海机票" target="_blank">青岛到上海机票</a> 
+                <a href="http://flights.ctrip.com/booking/XMN-SHA-day-1.html" title="厦门到上海机票" target="_blank">厦门到上海机票</a> 
+                <a href="http://flights.ctrip.com/booking/SIA-BJS-day-1.html" title="西安到北京机票" target="_blank">西安到北京机票</a> 
+                <a href="http://flights.ctrip.com/booking/CAN-HGH-day-1.html" title="广州到杭州机票" target="_blank">广州到杭州机票</a>
+                <a href="http://flights.ctrip.com/booking/CKG-SHA-day-1.html" title="重庆到上海机票" target="_blank">重庆到上海机票</a> 
+                <a href="http://flights.ctrip.com/booking/SIA-SHA-day-1.html" title="西安到上海机票" target="_blank">西安到上海机票</a> 
+                <a href="http://flights.ctrip.com/booking/TSN-SHA-day-1.html" title="天津到上海机票" target="_blank">天津到上海机票</a>
+                            <a href="http://flights.ctrip.com/booking/HRB-BJS-day-1.html" title="哈尔滨到北京机票" target="_blank">哈尔滨到北京机票</a>
+                            <a href="http://flights.ctrip.com/booking/CTU-HGH-day-1.html" title="成都到杭州机票" target="_blank">成都到杭州机票</a>
+                            <a href="http://flights.ctrip.com/booking/FOC-CAN-day-1.html" title="福州到广州机票" target="_blank">福州到广州机票</a>
+                            <a href="http://flights.ctrip.com/booking/CKG-CAN-day-1.html" title="重庆到广州机票" target="_blank">重庆到广州机票</a>
+                            <a href="http://flights.ctrip.com/booking/SHA-ZUH-day-1.html" title="上海到珠海机票" target="_blank">上海到珠海机票</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+<div class="base_side rightcolumn">
+    <!-- SEO:搜索结果页右侧航班时刻表 -->
+    <div id="tool_schedule" class="mod_box schedule" style="display:none;">
+    <div class="hd">
+        <a class="more" href="http://flights.ctrip.com/schedule/" target="_blank">更多</a>
+        航班时刻表
+    </div>
+    <div class="bd">
+        <a target="_blank" href="http://flights.ctrip.com/schedule/bjs..html">北京航班时刻表</a>
+        <a target="_blank" href="http://flights.ctrip.com/schedule/bjs.sha.html">北京到上海时刻表</a>
+        <a target="_blank" href="http://flights.ctrip.com/actualtime/depart-bjs/">北京实时起降</a>
+        <a target="_blank" href="http://flights.ctrip.com/actualtime/bjs-sha/">北京到上海实时起降</a>
+    </div>
+</div>
+
+    <!-- 航线公共礼盒 -->
+    <div id="commongift">
+    </div>
+    <!-- 机票工具箱 -->
+    <div class="mod_box toolbox">
+    <div class="hd">
+        机票工具箱
+    </div>
+    <div class="bd">
+        <a rel="nofollow" href="http://flights.ctrip.com/domestic/MyToolBox/Option.aspx" target="_blank">有低价早知道</a> 
+        <a href="http://my.ctrip.com/Home/Order/FlightOrderList.aspx" target="_blank">退票改签</a>
+        <a href="http://flights.ctrip.com/domestic/MyToolBox/Default.aspx" target="_blank">航班实时起降信息</a> 
+        <a rel="nofollow" href="http://flights.ctrip.com/domestic/MyToolBox/BookSeatDemo.aspx" target="_blank">网上选座须知</a>
+    </div>
+</div>
+    <!--特价ICON说明-->
+    <div id="tool_icon" class="mod_box icon_intro" style="display:none;">
+	<div class="hd"><a class="more" href="http://help.ctrip.com/QuestionDetail.aspx?questionId=654" target="_blank">更多</a>图标说明</div>
+	<ul class="bd">
+		<li><label><span class="ico_whole">旅行套餐</span></label>组合旅行套餐价格</li>
+		<li><label><span class="ico_sale_gift">礼</span></label>产品赠送礼盒</li>
+		<li><label><span class="agent">代理</span></label>产品由供应商提供</li>
+	</ul>
+</div>
+
+    <!-- 更多提示 -->
+    <div class="mod_box moretips">
+	<div class="hd"><a rel="nofollow" href="http://help.ctrip.com/QuestionList.aspx?parentId=2&directoryId=0" target="_blank" class="more">更多</a>贴心提示</div>
+	<div class="bd">
+		<a rel="nofollow" href="http://help.ctrip.com/questiondetail.aspx?questionId=26" target="_blank" title="国内机票价格组成？">国内机票价格组成？</a>
+		<a rel="nofollow" href="http://help.ctrip.com/questiondetail.aspx?questionId=28" target="_blank" title="买低价票有什么诀窍？">买低价票有什么诀窍？</a>
+		<a rel="nofollow" href="http://help.ctrip.com/QuestionDetail.aspx?questionId=42" target="_blank" title="什么是可申请最低价？">什么是可申请最低价？</a>
+        <a rel="nofollow" href="http://help.ctrip.com/questiondetail.aspx?questionId=20" target="_blank" title="马上要飞去一个城市，能及时买好机票并登机吗？">马上要飞去一个城市，能及时买好机票并登机吗？</a>
+	</div>
+</div>
+</div>
+<div class="seo_footer_new">
+    <div class="title">
+    携程网提供<a href="http://flights.ctrip.com/">特价机票</a>,<a href="http://flights.ctrip.com/schedule/">航班时刻表</a>,<a href="http://flights.ctrip.com/actualtime/">航班动态查询</a>:
+</div>
+<p class="p_text">携程机票为您提供<a href="http://flights.ctrip.com/booking/lowprice-BJS-SHA----adu-1/">北京到上海特价机票</a>,以及<a href="http://flights.ctrip.com/booking/china-city-flights-sitemap.html">飞机票价格查询</a>,<a href="http://flights.ctrip.com/booking/top">机票排行榜</a>,<a href="http://flights.ctrip.com/hot-flights.html">热门机票</a>,<a href="http://flights.ctrip.com/hot-airport.html">机场查询</a>.现在<a rel="nofollow" href="https://accounts.ctrip.com/member/emailregist.aspx" target="_blank">注册</a>携程会员即可获得1200积分和1300元消费券! </p>
+    <p><strong>北京出发机票</strong>
+            <a href="http://flights.ctrip.com/booking/BJS-SHA-day-1.html">北京到上海</a>
+            <a href="http://flights.ctrip.com/booking/BJS-SZX-day-1.html">北京到深圳</a>
+            <a href="http://flights.ctrip.com/booking/BJS-CAN-day-1.html">北京到广州</a>
+            <a href="http://flights.ctrip.com/booking/BJS-HGH-day-1.html">北京到杭州</a>
+            <a href="http://flights.ctrip.com/booking/BJS-CTU-day-1.html">北京到成都</a>
+            <a href="http://flights.ctrip.com/booking/BJS-SIA-day-1.html">北京到西安</a>
+            <a href="http://flights.ctrip.com/booking/BJS-DLC-day-1.html">北京到大连</a>
+            <a href="http://flights.ctrip.com/booking/BJS-WUH-day-1.html">北京到武汉</a>
+        <a href="http://flights.ctrip.com/booking/BJS-BEIJING-flights.html">更多</a> </p>
+    <p><strong>上海到达机票</strong>
+            <a href="http://flights.ctrip.com/booking/BJS-SHA-day-1.html">北京到上海</a>
+            <a href="http://flights.ctrip.com/booking/SZX-SHA-day-1.html">深圳到上海</a>
+            <a href="http://flights.ctrip.com/booking/CAN-SHA-day-1.html">广州到上海</a>
+            <a href="http://flights.ctrip.com/booking/CTU-SHA-day-1.html">成都到上海</a>
+            <a href="http://flights.ctrip.com/booking/TAO-SHA-day-1.html">青岛到上海</a>
+            <a href="http://flights.ctrip.com/booking/XMN-SHA-day-1.html">厦门到上海</a>
+            <a href="http://flights.ctrip.com/booking/WUH-SHA-day-1.html">武汉到上海</a>
+            <a href="http://flights.ctrip.com/booking/CKG-SHA-day-1.html">重庆到上海</a>
+        <a href="http://flights.ctrip.com/booking/SHA-BEIJING-flights.html">更多</a> </p>
+    <p><strong>北京到上海相关</strong> <a href="http://flights.ctrip.com/booking/BJS-SHA-day-1.html">北京到上海机票</a> <a href="http://flights.ctrip.com/schedule/BJS.SHA.html">北京到上海航班</a> <a href="http://flights.ctrip.com/actualtime/BJS-SHA/">北京到上海航班动态</a> <a href="http://flights.ctrip.com/booking/SHA-BJS-day-1.html">上海到北京机票</a> </p>
+    <p><strong>旅行助手</strong> <a href="http://flights.ctrip.com/booking/bjs-beijing-flights.html">北京特价机票</a> <a href="http://flights.ctrip.com/schedule/bjs..html">北京航班时刻表</a> <a href="http://flights.ctrip.com/actualtime/depart-bjs/">北京航班动态</a>
+            <a href="http://flights.ctrip.com/booking/airport-nanyuan/">南苑机场</a>
+            <a href="http://flights.ctrip.com/booking/airport-shoudu/">首都国际机场</a>
+        <a href="http://flights.ctrip.com/actualtime/booking/top/city-bjs">北京机票排行榜</a> <a href="http://trains.ctrip.com/TrainBooking/beijing/">北京火车票</a> <a href="http://trains.ctrip.com/TrainSchedule/beijing/">北京火车时刻表</a> <a href="http://hotels.ctrip.com/hotel/beijing1">北京酒店预订</a>
+            <a href="http://vacations.ctrip.com/dest/d-beijing-1">北京旅游</a>
+            <a href="http://piao.ctrip.com/dest/d-beijing-1/s-tickets/">北京景点门票</a>
+            <a href="http://you.ctrip.com/place/beijing1.html">北京旅游攻略</a>
+    </p>
+    <div class="title">机票工具箱</div>
+    <p class="p_text"><a href="http://flights.ctrip.com/booking/china-city-flights-sitemap.html" title="打折机票">打折机票</a>
+<a href="http://flights.ctrip.com/schedule/" title="航班查询时刻表">航班时刻表查询</a> <a href="http://flights.ctrip.com/actualtime/" title="航班实时起降查询">航班动态查询</a> 
+<a href="http://flights.ctrip.com/hot-airport.html" title="热门机场">机场查询</a>
+<a href="http://flights.ctrip.com/booking/top" title="机票排行榜">机票排行榜</a>
+<a href="http://flights.ctrip.com/booking/hot-city-flights-sitemap.html" title="机票地图">机票地图</a></p>
+    <p><strong>打折机票</strong>
+            <a href="http://flights.ctrip.com/booking/sha-Shanghai-flights.html">上海特价机票</a>
+            <a href="http://flights.ctrip.com/booking/bjs-Beijing-flights.html">北京特价机票</a>
+            <a href="http://flights.ctrip.com/booking/can-Guangzhou-flights.html">广州特价机票</a>
+            <a href="http://flights.ctrip.com/booking/szx-Shenzhen-flights.html">深圳特价机票</a>
+            <a href="http://flights.ctrip.com/booking/ckg-Chongqing-flights.html">重庆特价机票</a>
+            <a href="http://flights.ctrip.com/booking/ctu-Chengdu-flights.html">成都特价机票</a>
+            <a href="http://flights.ctrip.com/booking/kmg-Kunming-flights.html">昆明特价机票</a>
+            <a href="http://flights.ctrip.com/booking/xmn-Xiamen-flights.html">厦门特价机票</a>
+            <a href="http://flights.ctrip.com/booking/syx-Sanya-flights.html"> 三亚特价机票</a>
+            <a href="http://flights.ctrip.com/booking/dlc-Dalian-flights.html"> 大连特价机票</a>
+            <a href="http://flights.ctrip.com/booking/ljg-Lijiang-flights.html">丽江特价机票</a>
+            <a href="http://flights.ctrip.com/booking/tsn-Tianjin-flights.html">天津特价机票</a>
+            <a href="http://flights.ctrip.com/booking/foc-Fuzhou-flights.html">福州特价机票</a>
+            <a href="http://flights.ctrip.com/booking/she-Shenyang-flights.html">沈阳特价机票</a>
+            <a href="http://flights.ctrip.com/booking/cgo-Zhengzhou-flights.html"> 郑州特价机票</a>
+            <a href="http://flights.ctrip.com/booking/tao-Qingdao-flights.html">青岛特价机票</a>
+            <a href="http://flights.ctrip.com/booking/sia-Xian-flights.html">西安特价机票</a>
+            <a href="http://flights.ctrip.com/booking/nkg-Nanjing-flights.html">南京特价机票</a>
+            <a href="http://flights.ctrip.com/booking/wuh-Wuhan-flights.html">武汉特价机票</a>
+            <a href="http://flights.ctrip.com/booking/hgh-Hangzhou-flights.html">杭州特价机票</a>
+            <a href="http://flights.ctrip.com/booking/china-city-flights-sitemap.html">更多特价机票</a>
+    </p>
+
+</div>
+<div id="ApplyProductWaitTimeTips" class="pop_v2_bd" style="display:none;">
+    <p style="padding: 10px 20px; text-align: center;">该机票我愿意从<span class="base_price">04月13日</span>等到：</p>
+    <p style="padding: 10px 20px; text-align: center;">
+        <label class="base_label" id="apChoose24">
+            <input type="radio" name="ApplyProductChoose" value="24" class="input_radio" />
+            24小时内
+        </label>
+        <label class="base_label" id="apChoose72" style="margin-right: 10px;">
+            <input type="radio" name="ApplyProductChoose" value="72" class="input_radio" />
+            72小时内
+        </label>
+        <label class="base_label" id="apChooseAll">
+            <input type="radio" name="ApplyProductChoose" value="0" class="input_radio" />
+            起飞前1小时</label>
+    </p>
+    <div style="padding: 10px; text-align: center;">
+        <input type="button" value="申  请" class="base_btns2" id="ApplyProductBtn" />
+    </div>
+</div>
+
+<input id="SmCorpFeeType1" type="hidden" value="" />
+<input id="SmCorpData1" type="hidden" value="" />
+<input id="SmCorpData" type="hidden" />
+<input id="page_id" type="hidden" value="wait" />
+<input type="hidden" id="ab_testing_tracker" value="140403_fld_ident:D;" />
+<input id="RouteLowestPriceList" type="hidden" value='' />
+<input id="RouteLowestPriceListSecond" type="hidden" />
+<input id="ubtData1" type="hidden" value='' />
+<!-- SSO Code-->
+        <iframe id="__SSO_iframe_0" frameborder="0" scrolling="no" width="394px" height="582px" style="display:none;"></iframe>
+        <iframe id="__SSO_iframe_1" frameborder="0" scrolling="no" width="700px" height="582px" style="display:none;"></iframe>
+
+        <script language="javascript" type="text/javascript">
+        //免登 元素id,快速预订
+        function __SSO_booking(a,t){
+            var el=$("#__SSO_iframe_"+t);
+            if(el[0]){
+                el[0].src="/domestic/LoginCheck.aspx?a="+a+"&t="+t+"&b=7495F77E759C88F7FEB3C442113D24B7";
+            }
+            return false;
+        }
+        //强登功能，元素id,快速预订
+        function __SSO_booking_1(a,t){
+            var el=$("#__SSO_iframe_"+t);
+            if(el[0]){
+                el[0].src="/domestic/LoginCheck.aspx?a="+a+"&t="+t+"&b=7495F77E759C88F7FEB3C442113D24B7";
+            }
+            return false;
+        }
+        //免登 元素id,是否弹出登录框,快速预订,是否执行js函数
+        function __SSO_loginShow(a,s,t,n){
+            var el=$("#__SSO_iframe_"+t);
+            if (el[0]){
+                if(s){
+                    if(el[0]){
+                        el.mask();
+                        el[0].src="/domestic/LoginAgent.aspx?a="+a+"&t="+t+"&b=7495F77E759C88F7FEB3C442113D24B7&o=2BFBD70915C76F21";
+                    }
+                }else{
+                    el.unmask();
+                    if(n){
+                        __SSO_submit(a,t);
+                    }
+                }
+            }
+        }
+        //强登功能，元素id,是否弹出登录框,快速预订,是否执行js函数
+        function __SSO_loginShow_1(a,s,t,n){
+            var el=$("#__SSO_iframe_"+t);
+            if (el[0]){
+                if(s){
+                    if(el[0]){
+                        el.mask();
+                        el[0].src="/domestic/LoginAgent.aspx?a="+a+"&t="+t+"&b=7495F77E759C88F7FEB3C442113D24B7&o=2BFBD70915C76F21";
+                    }
+                }else{
+                    el.unmask();
+                    if(n){
+                        __SSO_submit(a,t);
+                    }
+                }
+            }
+        }
+        </script>
+
+<script type="text/javascript">
+    var $$ = {
+        module: {
+            jmpInfo: {
+                array: {}
+            }
+        }
+    };
+    var online = {
+        msg: {
+            ERROR_FLIGHT: [
+            '请选择出发城市',  //0
+            '请选择到达城市',  //1
+            '出发城市不能和到达城市相同',  //2
+            '请选择出发日期',  //3
+            '您选择的出发日期早于今天,请重新选择',  //4
+            '只能预订1天以后的酒店和机票',  //5
+            '只能查询一年内航班。',  //6
+            '请选择返程日期',  //7
+            '返回日期应不早于出发日期，请重新选择',  //8
+            '只能搜索一年内机票和酒店',  //9
+            '一位成人最多可携带两名儿童乘机。请修改出行人数',  //10
+            '您选择的返回日期早于出发日期,请重新选择',  //11
+            '第二程出发日期不能早于第一程出发日期',  //12
+            '请选择中转城市',  //13
+            '中转城市不能与出发到达城市相同'   //14
+            ]
+        }
+    };
+    var textConfig = {
+        week: ["周日","周一", "周二", "周三", "周四", "周五", "周六"],
+        craftSize: { "L": "大", "M": "中", "S": "小" },
+        numberCHS: ["一", "二", "三", "四"],
+        className:{"Y":"经济舱","C":"公务舱","F":"头等舱"},        
+        searchType:{"S":"单程","D":"往返","M":"联程"},
+        passengerType:{"ADU":"成人","CHI":"儿童","BAB":"婴儿"},
+        button:["预订", "申请","已选择", "选定","点击查询","前一天","后一天","高级搜索","简单搜索", "第","段","选择","订完","确  定"],
+        airport:["起飞机场","降落机场","首都","南苑","虹桥","浦东"],
+        icon:["候补等位","网络专享价","代理","惠飞宝","旅行套餐","往返特惠","往返特惠","青年特价","老年特价","礼","共享航班","购票限制","仅限邮寄","<i>返</i>${Amount}元","<i>立减</i>${Amount}元","仅剩${Quantity}张","飞人通道","经停","商务优选"],
+        tgq:["退改费用<strong>高</strong>","退改费用<strong>低</strong>","<strong>可以</strong>退改签","<strong>不可</strong>退改签"],
+        iconDesc : [
+            '<strong>消费券预订返现</strong><br />1.使用消费券预订成人票，并填写Email；<br/>2.完成返现邮件确认（不晚于航班起飞后第7天）；<br/>3.航班起飞后10天内，您的现金账户将收到返现<dfn>&yen;</dfn><strong class="base_price">${Amount}</strong>。<br /><a href="http://help.ctrip.com/QuestionList.aspx?parentId=1&directoryId=146" target="_blank">返现帮助</a>',
+            '<div class="tooltip tooltip_table"><table class="title_left"><tr><th>退票条件</th><td class="last">${RefNote}</td></tr><tr><th>更改条件</th><td class="last">${RerNote}</td></tr><tr><th>签转条件</th><td class="last">${EndNote}</td></tr>{{if Remarks&&Remarks!=""}}<tr><th>备注</th><td class="last">${Remarks}</td></tr>{{/if}}</table></div>',
+            '往返程均选择往返特惠产品，最低总价可享：<br /><span class="base_price"><dfn>&yen;</dfn><strong>${Amount}</strong></span>（不含税）＝去程<span class="base_price"><dfn>&yen;</dfn><strong>${Price1}</strong></span>＋返程<span class="base_price"><dfn>&yen;</dfn><strong>${Price2}</strong></span>',
+            '往返均选择${AirlineName}（带有立减标志），总价立减<span class="base_price"><dfn>&yen;</dfn>${Discount}</span>，可享<br><span class="base_price"><dfn>&yen;</dfn><strong>${Amount}</strong></span>（不含税）: 去程<span class="base_price"><dfn>&yen;</dfn><strong>${Price1}</strong></span>、返程<span class="base_price"><dfn>&yen;</dfn><strong>${Price2}</strong></span>',
+            '往返均选择${AirlineName}（带有往返特价标志），总价最低可享<br /><span class="base_price"><dfn>&yen;</dfn><strong>${Amount}</strong></span>（不含税）：去程<span class="base_price"><dfn>&yen;</dfn><strong>${Price1}</strong></span>、返程<span class="base_price"><dfn>&yen;</dfn><strong>${Price2}</strong></span>',
+            '<span>“飞人通道”是携程为需要紧急预订的用户推出的一项便捷服务。</span><ul><li>1.如需乘坐离起飞时间较近的航班，您仍能通过携程预订机票，携程将有专人处理您的预订；</li><li>2.如您在机场办理登机手续时需要帮助，可致电携程1010-6666咨询。</li></ul>',
+            '心仪的舱位没有了？没关系，现在您可以申请候补已售罄的舱位。一旦有票，携程将立即为您出票。（目前仅支持成人、儿童申请，限信用卡支付）',
+            '您选购的机票需单独向航空公司申请, 一旦申请成功将立刻出票并短信通知您。',
+            '“惠飞宝套餐”是携程推出的一款旅行产品。<br/>1.产品特惠价<dfn>&yen;</dfn>${Price}元，包含机票、礼品卡、航空意外险（礼品卡和意外险可任选一种）；<br/>2.${Package}，适用于支付携程预付类酒店、惠选酒店、团购产品和旅游度假产品；<br/>3.${Insurance}；<br/>4.同航班其他机票，请点击“更多舱位”。',
+            "<strong>旅行套餐：</strong><p style='padding-bottom:10px'>价值<strong class='base_price'>100000</strong>积分的旅游优惠券一张+机票一张。</p><strong>旅游优惠券使用说明：</strong><br/>1.可用于携程出境旅游，含团队游、半自助游及邮轮产品。（注：不可用于邮轮单船票、自由行套餐）；<br/>2.每单每成人直减<dfn>&yen;</dfn><strong class='base_price'>100</strong>，有效期内可不限次数使用（有效期至${EffectDate}）；<p style='margin-top:10px'>同航班非套餐机票，请点击“更多舱位”。</p>",//9 普通的旅行套餐
+            '<strong>预订套餐更优惠</strong><br />套餐优惠价<span class="base_price"><dfn>&yen;</dfn>${Price}</span>元，可提供发票。同航班非套餐机票，请点击“更多舱位”。<br />1、 显示价格为机票和专享优惠券的总价，会员专享携程旅游产品优惠券，每成人直减20元，即日起至2014年4月30日前可无限次使用，适用于国内旅游和出境旅游的团队游、自由行，及邮轮产品。<br />2、 套餐包含第一项内容，以及${Package}${Insurance}；${CardDesc}',
+            '礼品卡适用于支付携程旅行网预付类酒店、惠选酒店、团购产品、旅游度假产品；',
+            "<strong>旅行套餐：</strong><p style='padding-bottom:10px'>价值<strong class='base_price'>100000</strong>积分的旅游优惠券一张+机票一张。</p><strong>旅游优惠券使用说明：</strong><br/>1.可用于携程出境旅游，含团队游、半自助游及邮轮产品。（注：不可用于邮轮单船票、自由行套餐）；<br/>2.每单每成人直减<dfn>&yen;</dfn><strong class='base_price'>100</strong>，有效期内可不限次数使用（有效期至${EffectDate}）；<p style='margin-top:10px'>同航班非套餐机票，请点击“更多舱位”。</p>",//12 不含保险
+            "<strong>旅行套餐：</strong><p style='padding-bottom:10px'>价值<strong class='base_price'>100000</strong>积分的旅游优惠券一张+机票一张+总保额高达60万元的航空意外险一份。</p><strong>旅游优惠券使用说明：</strong><br/>1.可用于携程出境旅游，含团队游、半自助游及邮轮产品。（注：不可用于邮轮单船票、自由行套餐）；<br/>2.每单每成人直减<dfn>&yen;</dfn><strong class='base_price'>100</strong>，有效期内可不限次数使用（有效期至${EffectDate}）；<p style='margin-top:10px'>同航班非套餐机票，请点击“更多舱位”。</p>",  //13含保险          
+            '<strong>惠飞宝套餐：</strong><br />优惠价<dfn>&yen;</dfn>${Price}。含机票+以下任意一项：<br />旅游优惠券（价值<strong class="base_price"><dfn>&yen;</dfn>${TravelCouponPrice}</strong>）、航空意外险（保额最高可达<strong class="base_price"><dfn>&yen;</dfn>${BaoFeiAmountInfo}</strong>）、${PackageName}（<strong class="base_price"><dfn>&yen;</dfn>${PackagePrice}</strong>）<br /><br /><strong>旅游优惠券（门票）使用说明：</strong><br />1.优惠券共<strong class="base_price">6</strong>张，每张<strong class="base_price"><dfn>&yen;</dfn>10</strong>，可用于抵扣携程预付类景区门票产品。（注：不可用于单价低于<strong class="base_price"><dfn>&yen;</dfn>20</strong>的门票）；<br />2.每订单限用一张优惠券，不能和其他优惠同时享受。每张优惠券限用一次（有效期至${ValidDate}）。<br /><br /><strong>礼品卡（任我游）使用说明：</strong><br />礼品卡（任我游）适用于支付携程旅行网预付类酒店、惠选酒店、团购产品及旅游度假产品（有效期至2014年12月31日）。<br /><br />同航班非套餐机票，请点击“更多舱位”。',// 14 旅游优惠券
+            '“旅行套餐”是携程推出的一款旅行产品。<br/>1.产品特惠价<dfn>&yen;</dfn>${Price}元，包含机票、礼品卡、航空意外险（礼品卡和意外险可任选一种）；<br/>2.${Package}，适用于支付携程预付类酒店、惠选酒店、团购产品和旅游度假产品；<br/>3.${Insurance}；<br/>4.同航班其他机票，请点击“更多舱位”。',
+            '<strong>旅行套餐：</strong><br />优惠价<dfn>&yen;</dfn>${Price}。含机票+以下任意一项：<br />旅游优惠券（价值<strong class="base_price"><dfn>&yen;</dfn>${TravelCouponPrice}</strong>）、航空意外险（保额最高可达<strong class="base_price"><dfn>&yen;</dfn>${BaoFeiAmountInfo}</strong>）、${PackageName}（<strong class="base_price"><dfn>&yen;</dfn>${PackagePrice}</strong>）<br /><br /><strong>旅游优惠券（门票）使用说明：</strong><br />1.优惠券共<strong class="base_price">6</strong>张，每张<strong class="base_price"><dfn>&yen;</dfn>10</strong>，可用于抵扣携程预付类景区门票产品。（注：不可用于单价低于<strong class="base_price"><dfn>&yen;</dfn>20</strong>的门票）；<br />2.每订单限用一张优惠券，不能和其他优惠同时享受。每张优惠券限用一次（有效期至${ValidDate}）。<br /><br /><strong>礼品卡（任我游）使用说明：</strong><br />礼品卡（任我游）适用于支付携程旅行网预付类酒店、惠选酒店、团购产品及旅游度假产品（有效期至2014年12月31日）。<br /><br />同航班非套餐机票，请点击“更多舱位”。',// 16 旅游优惠券
+            '商务优选机票服务有保障，我们提供：<br><span style="font-family:simsun;">·</span>快速出票；<br><span style="font-family:simsun;">·</span>提供行程单，报销无忧；<br><span style="font-family:simsun;">·</span>服务优先：尊享7×24小时的全天候服务。'
+        ],
+        errorMsg:[
+            "新功能上线：舱位售罄不用愁，“等位子”省时省力！现在您可以申请机票候补，携程会为您时刻关注票务情况，一旦有票，立即出票。快来试一试吧！",
+            "很抱歉，您搜索的航班已售完。",
+            "没有符合您查询条件的航班，或舱位已售完，请重新查询。<br />如需咨询，请致电800-820-6666（固话）、1010-6666（免长话费）。",
+            "很抱歉，您搜索的${CityName}没有直飞航班。",
+            "很抱歉，您搜索的日期${DepartDate}${CityName}没有直飞航班。",
+            "很抱歉，系统繁忙，请<a href=\"javascript:ResultList.research();\">重新搜索</a>",
+            "很抱歉，没有找到符合筛选条件的航班。",
+            "很抱歉，没有合适的第二程航班。请<a href='javascript:ModifyFlight()'>返回重选</a>",
+            "很抱歉，根据您选择的第一程航班未找到时间适合的第二程航班。请<a href='javascript:ModifyFlight()'>返回重选</a>"
+        ],
+        title:[
+            "机票候补申请",
+            "请确认是否选择最低价格航班",
+            "可申请的航班",
+            "等位申请"//3
+        ],
+        text:[
+            "，",
+            "。",
+            "：",
+            "！",
+            "（",
+            "）",//5
+            "＋",
+            "到",
+            "折",
+            "全价",
+            "元",//10
+            "查看其他日历",
+            "很抱歉，找不到符合您所选公务舱/头等舱的航班信息，以下为您提供${DCityName}到${ACityName}${DDate}经济舱的全部航班信息。",
+            "特价往返信息",
+            "相关信息",
+            "不含税",//15
+            "预订即送 惊喜不断",
+            "详细",
+            "退改签规定",
+            "起",
+            "中转",//20
+            "去程",
+            "返程",
+            "更多中转航班",
+            "机建＋燃油",
+            "更多舱位",//25
+            "收起",
+            "最高返现${Amount}元",
+            "购票限制",
+            "到达时间为第2天",
+            "型机",//30
+            "计划机型",
+            "立即体验",
+            "当日准点率",
+            "历史准点率",
+            "已选择的航班及舱位信息",//35
+            "修改航班",
+            "说明",
+            "每段航班均需缴纳税费",          
+            "MM月dd日",
+            "正在为您搜索航班信息...",//40
+            "携程在手，说走就走",
+            "您选择的去程日期晚于返程日期。返程日期默认改为${Date}",
+            "您选择的第二程的出发日期晚于第一程的出发日期，第二程的出发日期默认改为${Date}",
+            "往返中转推荐",
+            "您还可以：<a onclick=\"FlightFilter.clear()\" href=\"javascript:void(0);\">清空筛选条件</a>",//45
+            "您还可以：<a href=\"http://flights.ctrip.com/domestic/ScheduleIndex.aspx\" target=\"_blank\">查询航班时刻表</a>",
+            "高铁推荐",
+            "中转航班推荐",
+            "邻近航线推荐",
+            "请注意，该航班在第一段航班起飞${spanDay}天后出发。",//50
+            "请选择费用类型",
+            "往返最低",
+            "yyyy年MM月dd日"
+        ],
+        meal:[
+        "餐食",//0
+        "饼干或早餐",
+        "酒精饮料",
+        "正餐 晚餐",
+        "餐食 配餐",
+        "小吃 点心",//5
+        "午餐",
+        "冷的膳食",
+        "茶点",
+        "没有饭食供应",
+        "供采购的食物",//10
+        "未知",//11
+        "有",//12
+        "无"//13
+        ]
+    };
+   
+    window.msg = online.msg;
+    var RootUrl="http://flights.ctrip.com/domestic/";
+    var SEORootUrl="http://flights.ctrip.com/booking/";
+    var BookRootUrl="http://flights.ctrip.com/Domestic/";
+    var SearchRootUrl="http://flights.ctrip.com/domesticsearch/search/";
+</script>
+
+
+
+    </div>
+    <script type="text/javascript">
+        window.__uidc_init = new Date * 1;
+        window.ReleaseNo = "CR2014_04_09_20_52_00";
+        
+        if (/msie (\d+)/.test(navigator.userAgent.toLowerCase())) {
+            setFullScreen();
+            window.onresize = function () {
+                setFullScreen();
+            }
+            function setFullScreen() {
+                var pageWidth = window.innerWidth; 
+                if (typeof pageWidth != "number") {
+                    if (document.compatMode == "CSS1Compat") {
+                        pageWidth = document.documentElement.clientWidth;
+                    } else {
+                        pageWidth = document.body.clientWidth; 
+                    }
+                }
+                var body = document.getElementsByTagName("body")[0];
+                if (pageWidth <= 1250) {
+                    if (body.className.indexOf("width_change") == -1) {
+                        body.className = "width_change";
+                    }
+                    document.getElementById("cui_nav_ul").style.width = "980px";
+                    document.getElementById("cui_hd").style.width = "980px";
+                }
+                else {
+                    if (body.className.indexOf("width_change") > -1) {
+                        body.className = "";
+                    }
+                    document.getElementById("cui_nav_ul").style.width = "1180px";
+                    document.getElementById("cui_hd").style.width = "1180px";
+                }
+
+            }
+        }
+    </script>
+    <script src="http://webresource.c-ctrip.com/code/cquery/LABjs/LAB.js" charset="utf-8" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+    var SearchCondition={"SearchType":"S","SearchRouteIndex":0,"DCity1":"BJS","DCityId1":1,"ACityId1":2,"DCityName1":"北京","DPort1":"","ACity1":"SHA","ACityName1":"上海","APort1":"","ACity2":"","ACityName2":"","APort2":"","DDate1":"2014-05-10","DDate2":"","Quantity":1,"ClassType":"","PassengerType":"ADU","AirlineCode":"","DTimeRange":"","EncryptUserId":null,"DontDownloadData":false,"DirectChannel":null,"IsSortByPrice":false,"CPCityId":1};
+    var SelectedFlight1=null;
+    var pageConfig={
+        needSearch:true,
+        displayMode:0,
+        IsTravelCouponSwitchOpen:"T"
+    };
+    var ssoInitLoginFlag = 'T';
+    function __SSO_submit(a, t) {
+        ssoInitLoginFlag = 'F';
+        $("#__SSO_iframe_0")[0].src="";
+        $("#__SSO_iframe_1")[0].src="";
+        if ($("#" + a).length > 0) $("#" + a)[0].click();
+    }
+    </script>
+
+    <script type="text/javascript">
+        $globalPad = true;
+        var WebResourcePath = "http://webresource.c-ctrip.com/ResFlightOnline/R1/booking";
+	$LAB.script({src:"http://webresource.c-ctrip.com/code/cquery/cQuery_110421.js?ReleaseNo=CR2014_04_09_20_52_00",charset:"utf-8"}).wait().padScript({src:"http://webresource.c-ctrip.com/code/cquery/pad.js?ReleaseNo=CR2014_04_09_20_52_00",charset:"utf-8"}).wait().script({src:"http://webresource.c-ctrip.com/code/js/resource/jmpinfo_tuna/CraftType_gb2312.js?ReleaseNo=CR2014_04_09_20_52_00",charset:"gb2312"}).wait().script({src:"http://webresource.c-ctrip.com/ResFlightOnline/R1/booking/minijs/FlightSearchResult_v2.0.js?ReleaseNo=CR2014_04_09_20_52_00",charset:"gb2312"}).wait(LoadCallback);
+
+        function LoadCallback(){		    
+	        if(typeof loadDomReady!="undefined"){
+		        loadDomReady();
+	        }
+            logTimer();
+        }
+
+    </script>
+    <script src="http://webresource.c-ctrip.com/ResCRMOnline/r1/js/float/headFloat.min.js?ws_testp20140121.js"></script><div id="base_ft">
+  <p><a href="http://pages.ctrip.com/public/sitemap/sitemap.htm" target="_blank" title="网站导航">网站导航</a>&#xA0;|&#xA0;<a rel="nofollow" title="免费注册" href="https://accounts.ctrip.com/member/emailregist.aspx">免费注册</a>&#xA0;|&#xA0;<a href="http://hotels.ctrip.com/jiudian/" target="_blank" title="宾馆索引">宾馆索引</a>&#xA0;|&#xA0;<a href="http://flights.ctrip.com/booking/hot-city-flights-sitemap.html " target="_blank" title="机票索引">机票索引</a>&#xA0;|&#xA0;<a href="http://pages.ctrip.com/public/sitemap/dj.html" title="旅游索引">旅游索引</a>&#xA0;|&#xA0;<a title="攻略索引" href="http://you.ctrip.com/sitemap/">攻略索引</a>&#xA0;|&#xA0;<a rel="nofollow" href="http://pages.ctrip.com/public/ctripab/abctrip.htm" target="_blank" title="关于携程">关于携程</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/commerce/promote/201201/other/qygm/index.html" title="企业公民">企业公民</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" title="诚聘英才" href="http://job.ctrip.com/">诚聘英才</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://u.ctrip.com/" title="分销联盟">分销联盟</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/commerce/promote/201012/other/yp/index.html" title="企业礼品卡采购">企业礼品卡采购</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/public/dlhz.htm" title="代理合作">代理合作</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/public/ctripad/adyw.htm" title="广告业务">广告业务</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/public/contact.htm" title="联系我们">联系我们</a>&#xA0;|&#xA0;<a rel="nofollow" style="color: #0066CC;" target="_blank" title="我要提建议" href="http://my.ctrip.com/adv/uxp/Community/CommunityAdvice.aspx">我要提建议</a></p>
+  <p><a rel="nofollow" href="http://pages.ctrip.com/public/serve%20guideline.htm" target="_blank" title="服务说明">服务说明</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/public/diploma/company.htm">营业执照</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/tour/ingroupline_pages.asp?folder=ingroup0904&amp;file=0177" title="旅游度假资质">旅游度假资质</a>&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://pages.ctrip.com/public/Insurance/index.htm">保险代理</a>&#xA0;|&#xA0;<a target="_blank" href="http://pages.ctrip.com/public/link/ctrip_link.html">友情链接</a>&#xA0;|&#xA0;<a rel="nofollow" href="http://pages.ctrip.com/public/copyright.htm">Copyright&copy;</a> 1999-2014, <a href="http://www.ctrip.com/"> ctrip.com</a>. All rights reserved.&#xA0;|&#xA0;<a rel="nofollow" target="_blank" href="http://www.miibeian.gov.cn/">ICP证：沪B2-20050130</a></p>
+  <p id="cui_lang_bottom"><a target="_blank" class="cui_lang_big5" title="繁体版" rel="nofollow" href="http://big5.ctrip.com/">繁体版</a> <a target="_blank" class="cui_lang_en" title="China Travel" rel="nofollow" href="http://english.ctrip.com/">English</a> <a target="_blank" class="cui_lang_jap" rel="nofollow" title="中国旅行" href="http://jp.ctrip.com/">日语版</a> <a target="_blank" class="cui_lang_korea" rel="nofollow" title="中国旅行" href="http://kr.ctrip.com/">韩语版</a> <a target="_blank" href="http://fr.ctrip.com/" rel="nofollow" title="Chine Voyage" class="cui_lang_fr">Fran&#xE7;ais</a> <a target="_blank" class="cui_lang_de" rel="nofollow" title="China Reisen" href="http://de.ctrip.com/">Deutsch</a> <a target="_blank" rel="nofollow" href="http://es.ctrip.com/" title="Viajar a China" class="cui_lang_es">Espa&#xF1;ol</a> <a target="_blank" rel="nofollow" class="cui_lang_ru" title="Ездить в Китай" href="http://ru.ctrip.com/">Русский</a><a target="_blank" rel="nofollow" class="cui_lang_vn" title="China Travel" href="http://vn.ctrip.com/">Tiêng Viêt</a></p>
+</div><!-- InstanceEnd name="position" --><script type="text/javascript">var globalConfig={H1:'https',H3:'my.ctrip.com',Lang:'gb2312',AjaxUrl:'accounts.ctrip.com'};</script><script type="text/javascript" src="http://webresource.c-ctrip.com/ResCRMOnline/r1/pageheader/js/Ctrip2013JS.js?temp=20140403" charset="utf-8"></script>
+</body>
+</html>
