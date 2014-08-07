@@ -401,6 +401,16 @@ void WorkloadMaster::completeTask(const string& task_str)
     Task::parse(task_str, tasks);
     for(vector<Task*>::iterator it = tasks.begin(); it != tasks.end(); ++it)
     {
+        if(m_task_status.find( (*it)->m_workload_key ) == m_task_status.end()){
+            // 添加上个时间槽的任务
+            vector<string> status;
+            status.push_back("0");
+            status.push_back("0");
+            status.push_back("-1");
+            status.push_back((*it)->m_content);
+            status.push_back((*it)->m_source);
+            m_task_status[(*it)->m_workload_key] = status;
+        }
         if((*it)->m_error == 0)
         {
             // 任务成功

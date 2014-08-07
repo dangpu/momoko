@@ -383,6 +383,7 @@ int Query_Processor::svc()
 				int error_task_num = get_param_int("errror_task_num=", worker->uri);
 				int request_task_num = get_param_int("request_task_num=", worker->uri);
 				m_master->heartbeat(id, thread_num, process_task_num, error_task_num, request_task_num);
+                res = id + " heartbeat ok!";
             }
 			else if(szOrigInput == "workload")
 			{
@@ -395,11 +396,13 @@ int Query_Processor::svc()
 				string task_str = get_param("q=", worker->uri);
 				//_INFO("[TASK %s begin!]", task_str);
 				m_workload->completeTask(task_str);
+                res = "complete_task ok!";
 			}
 			else if(szOrigInput == "updateTasks")
 			{
 				m_workload->updateWorkload();
 				_INFO("[task size is : %d]", m_workload->m_tasks.size());
+                res = "update workload ok!";
             }
 
 			//clock_t end = clock();
