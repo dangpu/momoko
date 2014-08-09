@@ -102,9 +102,8 @@ class WorkloadMaster
         int m_status;                           // 1代表常规任务已抓去完成
         TASK_MAP m_tasks;                       // 所有任务
         STRING_MAP m_task_status;               // 每个任务的key和该任务的执行情况
-        //MYSQL* m_mysql;                         // 数据库
         pthread_mutex_t m_locker;               // 线程锁
         DateTime m_today;                       // 日期
-        int m_task_num;
+        int m_task_num;                         // 例行任务个数
 };
 #endif  // WORKLOAD_HPP

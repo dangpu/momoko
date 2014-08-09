@@ -25,6 +25,8 @@ WorkloadMaster::~WorkloadMaster()
 
 void WorkloadMaster::updateWorkload()
 {
+    pthread_mutex_lock(&m_locker);
+
     // 分配时间槽
     DateTime now = DateTime::Now();
     int hour = now.GetHour();
@@ -58,6 +60,8 @@ void WorkloadMaster::updateWorkload()
         status.push_back(it->second.m_source);
         m_task_status[it->second.m_workload_key] = status;
     }
+
+    pthread_mutex_unlock(&m_locker);
 }
 
 
@@ -370,6 +374,7 @@ bool WorkloadMaster::completeTask(const string& task_str)
         _ERROR("[IN completeTask: TASK PARSE ERROR!]");
         return false;
     }
+    //pthread_mutex_lock(&m_locker);
     for(vector<Task*>::iterator it = tasks.begin(); it != tasks.end(); ++it)
     {
         string workload_key = (*it)->m_workload_key;
@@ -403,6 +408,7 @@ bool WorkloadMaster::completeTask(const string& task_str)
             updateFailedTimes(workload_key);
         }
     }
+    //pthread_mutex_unlock(&m_locker);
     return true;
 }
 
