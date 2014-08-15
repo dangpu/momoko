@@ -1,0 +1,4 @@
+workload自适应模块
+key：workload生成
+monitor：task任务执行情况
+generator：任务自动生成

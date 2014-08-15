@@ -1,0 +1,559 @@
+#include <sstream>
+#include <fstream>
+#include <iostream>
+#include <math.h>
+#include "common/service_log.hpp"
+#include "CommonFuc.hpp"
+#include "TaskMonitor.hpp"
+
+// 单程航班crawl字段数
+#define FLIGHT_ONEWAY_NUM_FIELDS    7
+// 往返航班crawl字段数
+#define FLIGHT_ROUND_NUM_FIELDS     9
+// 酒店crawl字段数
+#define ROOM_NUM_FIELDS             8
+// 监控表字段数
+#define MONITOR_NUM_FIELDS   7
+
+
+TaskMonitor::TaskMonitor()
+{
+    m_key_generator = new KeyGenerator();
+}
+
+
+TaskMonitor::~TaskMonitor()
+{
+    delete m_key_generator;
+}
+
+
+bool TaskMonitor::connect2DB(MYSQL* mysql, const string& host, const string& db, const string& user, const string& passwd)
+{
+    mysql_init(mysql);
+    if (!mysql_real_connect(mysql, host.c_str(), user.c_str(), passwd.c_str(), db.c_str(), 0, NULL, 0)) 
+    {   
+        _ERROR("[Connect to %s error: %s]", db.c_str(), mysql_error(mysql));
+        return false;
+     }   
+    // 设置字符编码
+    if (mysql_set_character_set(mysql, "utf8"))
+    {   
+        _ERROR("[Set mysql characterset: %s]", mysql_error(mysql));
+        return false;
+    }   
+    return true;
+}
+
+
+bool TaskMonitor::readFlightOneway()
+{
+    // 连接数据库
+    MYSQL* mysql = (MYSQL*)malloc(sizeof(MYSQL));
+    string host = "114.215.168.168";
+    string db = "crawl";
+    string user = "root";
+    string passwd = "miaoji@2014!";
+    if( !connect2DB(mysql, host, db, user, passwd) )
+    {   
+        return false;
+    }
+    
+    // 读取flight表
+    // 航班号，出发城市三字码，到达城市三字码，出发日期，价格，更新时间, 源
+    string sql = "select flight_no, dept_id, dest_id, dept_day, price, updatetime, source from flight";
+    if(int t = mysql_query(mysql, sql.c_str()) != 0)
+    {   
+        _ERROR("[mysql_query error: %s] [error sql: %s]", mysql_error(mysql), sql.c_str());
+    }   
+    else
+    {   
+        MYSQL_RES* res = mysql_use_result(mysql);
+        int num_fields = mysql_num_fields(res);
+        if(num_fields != FLIGHT_ONEWAY_NUM_FIELDS)
+        {
+            _ERROR("READ flight, wrong num fields : %d!", num_fields);
+            return false;
+        }
+        MYSQL_ROW row;
+        if(res)
+        {
+            string last_dept_id;
+            string last_dest_id;
+            string last_dept_day;
+            string last_source;
+            Json::Value price_value;
+            while( row = mysql_fetch_row(res) )
+            {
+                string flight_no = row[0];
+                string dept_id = row[1];
+                string dest_id = row[2];
+                string dept_day = row[3];
+                string price = row[4];
+                string updatetime = row[5];
+                string source = row[6];
+                // 判断该记录和上条记录是否属于同一个task
+                if( dept_id == last_dept_id && dest_id == last_dest_id && dept_day == last_dept_day && source == last_source)
+                {
+                    price_value[flight_no] = atof(price.c_str());
+                }
+                else
+                {
+                    // 价格序列化
+                    string price_str = searializePrice(price_value);
+                    // 读入该条任务执行情况
+                    vector<string> vec;
+                    vec.push_back(dept_id);
+                    vec.push_back(dest_id);
+                    vec.push_back(dept_day);
+                    vec.push_back(price_str);
+                    vec.push_back(updatetime);
+                    vec.push_back(source);
+                    m_crawl_data.push_back(vec);
+                    // 更新任务指示器
+                    last_dept_id = dept_id;
+                    last_dest_id = dest_id;
+                    last_dept_day = dept_id;
+                    last_source = source;
+                    // 清空价格
+                    price_value.clear();
+                }
+            }
+            // 最后一个workload 更新
+            // TODO
+        }
+        mysql_free_result(res);
+    }
+    // 删除mysql
+    mysql_close(mysql);
+    delete mysql;
+    return true;
+}
+
+
+bool TaskMonitor::readFlightRound()
+{
+    // 连接数据库
+    MYSQL* mysql = (MYSQL*)malloc(sizeof(MYSQL));
+    string host = "114.215.168.168";
+    string db = "crawl";
+    string user = "root";
+    string passwd = "miaoji@2014!";
+    if( !connect2DB(mysql, host, db, user, passwd) )
+    {   
+        return false;
+    }
+    
+    // 读取flight_round表
+    // 出发航班号，出发城市三字码，归来航班号，到达城市三字码，出发日期，归来日期， 价格，更新时间, 源
+    string sql = "select flight_no_A, dept_id, flight_no_B, dest_id, dept_day, dest_day, price, updatetime, source from flight";
+    if(int t = mysql_query(mysql, sql.c_str()) != 0)
+    {   
+        _ERROR("[mysql_query error: %s] [error sql: %s]", mysql_error(mysql), sql.c_str());
+        return false;
+    }   
+    else
+    {   
+        MYSQL_RES* res = mysql_use_result(mysql);
+        int num_fields = mysql_num_fields(res);
+        if(num_fields != FLIGHT_ROUND_NUM_FIELDS)
+        {
+            _ERROR("READ flight_round, wrong num fields: %d!", num_fields);
+            return false;
+        }
+        MYSQL_ROW row;
+        if(res)
+        {
+            string last_dept_id;
+            string last_dest_id;
+            string last_dept_day;
+            string last_dest_day;
+            string last_source;
+            Json::Value price_value;
+            while( row = mysql_fetch_row(res) )
+            {
+                string flight_no_A = row[0];
+                string dept_id = row[1];
+                string flight_no_B = row[2];
+                string dest_id = row[3];
+                string dept_day = row[4];
+                string dest_day = row[5];
+                string price = row[6];
+                string updatetime = row[7];
+                string source = row[8];
+                // 判断该记录和上条记录是否属于同一个task
+                if( dept_id == last_dept_id && dest_id == last_dest_id && dept_day == last_dept_day && dest_day == last_dest_day && source == last_source)
+                {
+                    string flight_no = flight_no_A + '_' + flight_no_B;
+                    price_value[flight_no] = atof(price.c_str());
+                }
+                else
+                {
+                    // 价格序列化
+                    string price_str = searializePrice(price_value);
+                    // 读入该条任务执行情况
+                    vector<string> vec;
+                    vec.push_back(dept_id);
+                    vec.push_back(dest_id);
+                    vec.push_back(dept_day);
+                    vec.push_back(dest_day);
+                    vec.push_back(price_str);
+                    vec.push_back(updatetime);
+                    vec.push_back(source);
+                    m_crawl_data.push_back(vec);
+                    // 更新任务指示器
+                    last_dept_id = dept_id;
+                    last_dest_id = dest_id;
+                    last_dept_day = dept_id;
+                    last_dest_day = dest_day;
+                    last_source = source;
+                    // 清空价格
+                    price_value.clear();
+                }
+            }
+            // 最后一个workload 更新
+            // TODO
+        }
+        mysql_free_result(res);
+    }
+    // 删除mysql
+    mysql_close(mysql);
+    delete mysql;
+    return true;
+}
+
+
+bool TaskMonitor::writeFlight()
+{
+    // 读取现有监控数据
+    string host = "114.215.168.168";
+    string db = "monitor";
+    string user = "root";
+    string passwd = "miaoji@2014!";
+    string sql = "select workload_key, source, last_updatetime, last_price, updatetime, price, price_wave from flight_monitor";
+    if( !readMonitorData(m_monitor_data, sql, MONITOR_NUM_FIELDS, host, db, user, passwd) )
+    {
+        _ERROR("IN writeFlight, CANNOT read monitor data!");
+        return false;
+    }
+
+    // 插入crawl数据
+    CRAWL_DATA::iterator it = m_crawl_data.begin();
+    for(; it != m_crawl_data.end(); ++it)
+    {
+        vector<string> crawl_vec = *it;
+        string workload_key;
+        if( FLIGHT_ONEWAY_NUM_FIELDS-1 == crawl_vec.size() )
+        {   
+            // 单程航班
+            string source = crawl_vec[5];
+            string dept_id = crawl_vec[0];
+            string dest_id = crawl_vec[1];
+            string dept_day = crawl_vec[2];
+            string price_str = crawl_vec[3];
+            string updatetime = crawl_vec[4];
+            // 生成workload_key
+            workload_key = m_key_generator->getFlightOnewayKey(source, dept_id, dest_id, dept_day);
+            // 插入
+            insertMonitorData(workload_key, source, updatetime, price_str);
+        }
+        else if( FLIGHT_ROUND_NUM_FIELDS-2 == crawl_vec.size() )
+        {
+            // 往返航班
+            string dept_id = crawl_vec[0];
+            string dest_id = crawl_vec[1];
+            string dept_day = crawl_vec[2];
+            string dest_day = crawl_vec[3];
+            string price_str = crawl_vec[4];
+            string updatetime = crawl_vec[5];
+            string source = crawl_vec[6];
+            // 生成workload_key
+            workload_key = m_key_generator->getFlightRoundKey(source, dept_id, dest_id, dept_day, dest_day);
+            // 插入
+            insertMonitorData(workload_key, source, updatetime, price_str);
+        }
+        else
+        {
+            _ERROR("");
+            continue;
+        }
+    }
+    return true;
+}
+
+
+bool TaskMonitor::readRoom()
+{
+    // 连接crawl数据库
+    MYSQL* mysql = (MYSQL*)malloc(sizeof(MYSQL));
+    string host = "114.215.168.168";
+    string db = "crawl";
+    string user = "root";
+    string passwd = "miaoji@2014!";
+    if( !connect2DB(mysql, host, db, user, passwd) )
+    {
+        return false;
+    }
+
+    // 读取room表
+    // 城市, 源, 源酒店id, 源房间id, 入住日期, 离店日期, 价格, 更新时间
+    string sql = "SELECT city, source, source_hotelid, source_roomid, check_in, check_out, price, update_time FROM room ORDER BY source";
+    if(int t = mysql_query(mysql, sql.c_str()) != 0)
+    {   
+        _ERROR("[mysql_query error: %s] [error sql: %s]", mysql_error(mysql), sql.c_str());
+    }
+    else
+    {
+        MYSQL_RES* res = mysql_use_result(mysql);
+        int num_fields = mysql_num_fields(res);
+        if(num_fields != ROOM_NUM_FIELDS)
+        {
+            _ERROR("READ room, wrong num fields : %d!", num_fields);
+            return false;
+        }
+        MYSQL_ROW row;
+        if(res)
+        {
+            string last_source;
+            string last_city;
+            string last_source_hotelid;
+            string last_checkin_day;
+            string last_checkout_day;
+            Json::Value price_value;
+            while( row = mysql_fetch_row(res) )
+            {
+                string city = row[0];
+                string source = row[1];
+                string source_hotelid = row[2];
+                string source_roomid = row[3];
+                string checkin_day = row[4];
+                string checkout_day = row[5];
+                string price = row[6];
+                string updatetime = row[7];
+                bool flag = false;      // 标示该条记录和上一条记录是否属于同一个workload
+                // 对于按城市抓取的源和按酒店抓取的源分别判断该条记录和上一条记录是否属于同一个workload
+                if(source == "biyi" || source == "agoda")
+                {
+                    if(city == last_city && source == last_source && checkin_day == last_checkin_day && checkout_day == last_checkout_day)
+                    {
+                        flag = true;
+                    }
+                }
+                else
+                {
+                    if(source_hotelid == last_source_hotelid && source == last_source && checkin_day == last_checkin_day && checkout_day == last_checkout_day)
+                    {
+                        flag = true;
+                    }
+                }
+                //
+                if(flag)
+                {
+                    if(source_roomid == "NULL")
+                    {
+                        price_value["room_num"] += 1;
+                        price_value["price_all"] += atof(price.c_str());
+                    }
+                    else
+                    {
+                        price_value[source_roomid] = atof(price.c_str());
+                    }
+                }
+                else
+                {
+                    // 价格序列化
+                    string price_str = searializePrice(price_value);
+                    // 读入该条任务执行情况
+                    vector<string> vec;
+                    vec.push_back(city);
+                    vec.push_back(source);
+                    vec.push_back(source_hotelid);
+                    vec.push_back(checkin_day);
+                    vec.push_back(checkout_day);
+                    vec.push_back(price);
+                    vec.push_back(updatetime);
+                    // 插入到crawl数据
+                    m_crawl_data.push_back(vec);
+                    // 更新为上一条记录
+                    last_city = city;
+                    last_source = source;
+                    last_source_hotelid = source_hotelid;
+                    last_checkin_day = checkin_day;
+                    last_checkout_day = checkout_day;
+                }
+            }
+        }
+        mysql_result_free(res);
+    }
+    mysql_close(mysql);
+    delete mysql;
+    return true;
+}
+
+
+bool TaskMonitor::writeRoom()
+{
+    // 读取现有monitor数据
+    string host = "114.215.168.168";
+    string db = "monitor";
+    string user = "root";
+    string passwd = "miaoji@2014!";
+    string sql = "select workload_key, source, last_updatetime, last_price, updatetime, price, price_wave from room_monitor";
+    if( !readMonitorData(m_monitor_data, sql, MONITOR_NUM_FIELDS, host, db, user, passwd) )
+    {
+        _ERROR("IN writeFlight, CANNOT read monitor data!");
+        return false;
+    }
+
+    // 插入crawl数据
+    CRAWL_DATA::iterator it = m_crawl_data.begin();
+    for(; it != m_crawl_data.end(); ++it)
+    {
+        vector<string> crawl_vec = *it;
+        string workload_key;
+        if( ROOM_NUM_FIELDS-1 == crawl_vec.size() )
+        {
+            string city = crawl_vec[0];
+            string source = crawl_vec[1];
+            string source_hotelid = crawl_vec[2];
+            string checkin_day = crawl_vec[3];
+            string checkout_day = crawl_vec[4];
+            // 生成workload_key
+            workload_key = m_key_generator->getRoomKey(source, city, source_hotelid, checkin_day, checkout_day);
+            // 插入
+            insertMonitorData(workload_key, source, updatetime, price_str);
+        }
+        else
+        {
+            _ERROR("");
+            continue;
+        }
+    }
+    return true;
+}
+
+
+void TaskMonitor::insertMonitorData(const string& workload_key, const string& source, const string& updatetime, const string& price_str)
+{
+    // 插入
+    MONITOR_DATA::iterator it = m_monitor_data.find(workload_key);
+    if( it1 != m_monitor_data.end() )
+    {
+        // 存在该key， 更新
+        vector<string> monitor_vec = it->second;
+        monitor_vec[2] = monitor_vec[4];                        // 更新last_updatetime
+        monitor_vec[3] = monitor_vec[5];                        // 更新last_price
+        monitor_vec[4] = updatetime;                            // 更新updatetime
+        monitor_vec[5] = price_str;                             // 更新price
+        monitor_vec[6] = getPriceWave(monitor[3], monitor[5]);  // 更新price变动
+        m_monitor_data[workload_key] = monitor_vec;             // 更新m_monitor_data
+    }
+    else
+    {
+       // 不存在该key， 插入
+       vector<string> monitor_vec;
+       monitor_vec.push_back(workload_key);
+       monitor_vec.push_back(source);
+       monitor_vec.push_back("1900-01-01");
+       monitor_vec.push_back("");
+       monitor_vec.push_back(updatetime);
+       monitor_vec.push_back(price_str);
+       monitor_vec.push_back( getPriceWave("", price_str) );
+       m_monitor_data[workload_key] = monitor_vec;
+    }
+}
+
+bool TaskMonitor::readMonitorData(MONITOR_DATA& monitor_data, const string& sql, int num_fields, const string& host, const string& db, const string& user, const string& passwd)
+{
+    MYSQL* mysql;
+    if( !connect2DB(host, db, user, passwd) )
+    {
+        return false;
+    }
+    if(int t = mysql_query(mysql, sql.c_str()) != 0)
+    {
+        _ERROR("[mysql_query error: %s] [error sql: %s]", mysql_error(mysql), sql.c_str());
+        return false;
+    }
+    else
+    {
+        MYSQL_RES* res = mysql_use_result(mysql);
+        if(num_fields != mysql_num_fields(res))
+        {
+            _ERROR("IN readMonitorData, num_fields not match, real num_fields is %d", mysql_num_fields(res));
+            return false;
+        }
+        MYSQL_ROW row;
+        if(res)
+        {
+            while( row = mysql_fetch_row(res) )
+            {
+                vector<string> vec;
+                for(int i = 0; i < num_fields; i++)
+                {
+                    vec.push_back(string(row[i]));
+                }
+                monitor_data.push_back(vec);
+            } 
+        }
+        mysql_result_free(mysql);
+    }
+    mysql_close(mysql);
+    delete mysql;
+    return true;
+}
+
+
+string TaskMonitor::serializePrice(const Json::Value& price_value)
+{
+    Json::FastWriter jfw;
+    string str = jfw.write(price_value);
+    str = str.erase(str.rfind('\n'));
+    return str;
+}
+
+
+bool TaskMonitor::parsePrice(const string& price_str, Json::Value& price_value)
+{
+    Json::Reader reader;
+    return reader.parse(price_str, price_value);
+}
+
+
+float TaskMonitor::getPriceWave(const string& last_price_str, const string& price_str)
+{
+    // 第一次更新价格，变动无限大
+    if("" == last_price_str)
+    {
+        return 0.999;
+    }
+
+    // price解析
+    Json::Value last_price_value, price_value;
+    if( !parsePrice(last_price_str, last_price_value) || !parsePrice(price_str, price_value) )
+    {
+        _ERROR("cannot parse price!");
+        return 0;
+    }
+    if( last_price_value.size() != price_value.size() )
+    {
+        _ERROR("last_price and price not match!");
+        return 0;
+    }
+
+    // 计算价格变动
+    // 航班ok，如果该航班卖完，则该航班变动为1
+    // 按城市抓取的酒店数据只有平均价格和总数，是否需要特殊处理
+    float wave = 0.0;
+    int num = 0;
+    Json::Members last_price_members = last_price_value.getMemberNames();
+    for(Json::Members::iterator it = last_price_members.begin(); it != last_price_members.end(); ++it, ++num)
+    {
+        string key = *it;
+        float last_price_item = last_price_value.get(key, 0.0).asDouble();
+        float price_item = price_value.get(key, 0.0).asDouble();
+        wave += abs(last_price_item - price_item) / max(last_price_item, price_item);
+    }
+    wave = wave / num;
+    return wave;
+}
