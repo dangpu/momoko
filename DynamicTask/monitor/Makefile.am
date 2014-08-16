@@ -6,10 +6,10 @@ lib_LTLIBRARIES=
 
 lib_LTLIBRARIES+=libmonitor.la
 libmonitor_la_SOURCES=TaskMonitor.cpp
-libmonitor_la_LIBADD= -lpthread ../json/libjson.la ../common/libcommon.la
+libmonitor_la_LIBADD=../key/libkey.la ../json/libjson.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
 
 bin_PROGRAMS+=test
 test_SOURCES=test.cpp
-test_LDADD=-lkey ../key/libkey.la -lmonitor libmonitor.la
+test_LDADD=-lmonitor libmonitor.la
 
 AM_CPPFLAGS+=-DSS_DOCID_BITS=256

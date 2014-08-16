@@ -14,7 +14,7 @@
 #include <tr1/unordered_map>
 #include <mysql/mysql.h>
 #include "json/json.h"
-#include "KeyGenerator"
+#include "key/KeyGenerator.hpp"
 using namespace std;
 
 typedef vector< vector<string> > CRAWL_DATA;
@@ -47,11 +47,19 @@ class TaskMonitor
         bool monitor();
     private:
         bool connect2DB(MYSQL* m_mysql, const string& host, const string& db, const string& user, const string& passwd);
+        bool createMonitorTable(const string& host, const string& db, const string& user, const string& passwd);
         void insertMonitorData(const string& workload, const string& source, const string& updatetime, const string& price_str);
-        bool readMonitorData(MONITOR_DATA& monitor_data, const string& sql, const string& host, const string& db, const string& user, const string& passwd);
+        bool readMonitorData(MONITOR_DATA& monitor_data, const string& sql, int num_fields, const string& host, const string& db, const string& user, const string& passwd);
         string serializePrice(const Json::Value& price_value);
         bool parsePrice(const string& price_str, Json::Value& price_value);
         float getPriceWave(const string& last_price_str, const string& price_str);
+        inline void stripDay(string& day)
+        {
+            string year = day.substr(0, 4);
+            string month = day.substr(5, 2);
+            string date = day.substr(8, 2);
+            day = year + month + date;
+        }
     private:
         CRAWL_DATA m_crawl_data;
         MONITOR_DATA m_monitor_data;

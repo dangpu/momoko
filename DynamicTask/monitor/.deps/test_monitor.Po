@@ -1,4 +1,4 @@
-test.o: test.cpp TaskMonitor.hpp \
+test_monitor.o: test_monitor.cpp TaskMonitor.hpp \
  /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/string \
  /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \

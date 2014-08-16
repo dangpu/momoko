@@ -81,13 +81,14 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(libdir)" \
 	"$(DESTDIR)$(bindir)"
 LIBRARIES = $(lib_LIBRARIES)
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libmonitor_la_DEPENDENCIES = ../json/libjson.la ../common/libcommon.la
+libmonitor_la_DEPENDENCIES = ../key/libkey.la ../json/libjson.la \
+	../common/libcommon.la
 am_libmonitor_la_OBJECTS = TaskMonitor.lo
 libmonitor_la_OBJECTS = $(am_libmonitor_la_OBJECTS)
 PROGRAMS = $(bin_PROGRAMS)
 am_test_OBJECTS = test.$(OBJEXT)
 test_OBJECTS = $(am_test_OBJECTS)
-test_DEPENDENCIES = ../key/libkey.la libmonitor.la
+test_DEPENDENCIES = libmonitor.la
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/_aux/depcomp
 am__depfiles_maybe = depfiles
@@ -264,9 +265,9 @@ collectHEADERS_T = \
 lib_LIBRARIES = 
 lib_LTLIBRARIES = libmonitor.la
 libmonitor_la_SOURCES = TaskMonitor.cpp
-libmonitor_la_LIBADD = -lpthread ../json/libjson.la ../common/libcommon.la
+libmonitor_la_LIBADD = ../key/libkey.la ../json/libjson.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
 test_SOURCES = test.cpp
-test_LDADD = -lkey ../key/libkey.la -lmonitor libmonitor.la
+test_LDADD = -lmonitor libmonitor.la
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
