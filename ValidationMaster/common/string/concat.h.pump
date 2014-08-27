@@ -1,0 +1,99 @@
+// Copyright (c) 2011, Tencent Inc.
+// All rights reserved.
+//
+// Author: CHEN Feng <phongchen@tencent.com>
+// Created: 04/30/11
+// Description: string concat
+
+#ifndef COMMON_BASE_STRING_CONCAT_H
+#define COMMON_BASE_STRING_CONCAT_H
+#pragma once
+
+#include <string>
+#include "common/base/string/string_append_1.h"
+
+////////////////////////////////////////////////////////////////
+// Append to output param str
+
+$var n = 32
+$range i 2..n
+
+$for i [[
+
+$range j 1..i
+
+template <
+    $for j,
+    [[typename T$j]]
+
+>
+void StringAppend(
+    std::string* str,
+    $for j,
+    [[const T$j& a$j]]
+
+)
+{
+
+$range j 1..i
+$for j [[
+    StringAppend(str, a$j);
+
+]]
+}
+
+]]
+
+/////////////////////////////////////////////////////////////////////////////
+// Concat and return result
+
+$range i 1..n
+
+$for i [[
+
+$range j 1..i
+
+template <
+    $for j,
+    [[typename T$j]]
+
+>
+std::string StringConcat(
+    $for j,
+    [[const T$j& a$j]]
+
+)
+{
+    std::string result;
+    StringAppend(&result, $for j, [[a$j]]);
+    return result;
+}
+
+]]
+
+/////////////////////////////////////////////////////////////////////////////
+// Concat to output param
+
+$for i [[
+
+$range j 1..i
+
+template <
+    $for j,
+    [[typename T$j]]
+
+>
+void StringConcatTo(
+    std::string* result,
+    $for j,
+    [[const T$j& a$j]]
+
+)
+{
+    result->clear();
+    StringAppend(result, $for j, [[a$j]]);
+}
+
+]]
+
+#endif // COMMON_BASE_STRING_CONCAT_H

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json
+END
+json_internalmap.inl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json_internalmap.inl
+END
+json_internalarray.inl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json_internalarray.inl
+END
+json_writer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json_writer.cpp
+END
+json_value.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json_value.cpp
+END
+forwardsj.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/forwardsj.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/config.h
+END
+json.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json.h
+END
+test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/test.cpp
+END
+json_valueiterator.inl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json_valueiterator.inl
+END
+json_batchallocator.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json_batchallocator.h
+END
+readerj.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/readerj.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/Makefile.am
+END
+valuej.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/valuej.h
+END
+json_reader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/json_reader.cpp
+END
+autolink.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/autolink.h
+END
+writerj.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/writerj.h
+END
+featuresj.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/mobilesearch/!svn/ver/31013/trunk/yzc/chat_qo/json/featuresj.h
+END
