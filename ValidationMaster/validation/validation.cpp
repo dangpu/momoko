@@ -75,7 +75,7 @@ bool Validation::repostValidReq(const string& req, string& slave_res)
             continue;
         string slave_ip = (*it);
         cout << slave_ip << endl;
-        m_client->init(slave_ip, 50000000);
+        m_client->init(slave_ip, 100000000);
         //m_client->init("112.124.18.14:8088", 1000000);
         ServerRst server_rst;
         cout << req << endl;

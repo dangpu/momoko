@@ -4,7 +4,6 @@
 #define COMMON_BASE_STRING_ALGORITHM_H
 
 #include <limits.h>
-#include <stdarg.h>
 #include <stdlib.h>
 #include <set>
 #include <string>

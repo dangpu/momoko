@@ -133,13 +133,23 @@ query_processor.o: query_processor.cpp http_server.hpp task_base.hpp \
  /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/c++io.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/fstream.tcc \
  ../master/data.hpp ../common/service_log.hpp ../common/time/datetime.h \
- ../master/workload.hpp /usr/include/mysql/mysql.h \
+ ../master/validation.hpp /usr/include/mysql/mysql.h \
  /usr/include/mysql/mysql_version.h /usr/include/mysql/mysql_com.h \
  /usr/include/mysql/mysql_time.h /usr/include/mysql/my_list.h \
  /usr/include/mysql/typelib.h /usr/include/mysql/my_alloc.h \
- service_log.hpp /usr/include/errno.h /usr/include/bits/errno.h \
+ ../master/../Client/SocketClient.h /usr/include/sys/socket.h \
+ /usr/include/sys/uio.h /usr/include/bits/uio.h \
+ /usr/include/bits/socket.h /usr/include/bits/sockaddr.h \
+ /usr/include/asm/socket.h /usr/include/asm-generic/socket.h \
+ /usr/include/asm/sockios.h /usr/include/asm-generic/sockios.h \
+ /usr/include/sys/un.h /usr/include/errno.h /usr/include/bits/errno.h \
  /usr/include/linux/errno.h /usr/include/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/netdb.h \
+ /usr/include/netinet/in.h /usr/include/bits/in.h \
+ /usr/include/rpc/netdb.h /usr/include/bits/siginfo.h \
+ /usr/include/bits/netdb.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ ../master/workload.hpp service_log.hpp \
  /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/algorithm \
  /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_algo.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstdlib \
@@ -487,7 +497,7 @@ wait_list.hpp:
 
 ../common/time/datetime.h:
 
-../master/workload.hpp:
+../master/validation.hpp:
 
 /usr/include/mysql/mysql.h:
 
@@ -503,7 +513,27 @@ wait_list.hpp:
 
 /usr/include/mysql/my_alloc.h:
 
-service_log.hpp:
+../master/../Client/SocketClient.h:
+
+/usr/include/sys/socket.h:
+
+/usr/include/sys/uio.h:
+
+/usr/include/bits/uio.h:
+
+/usr/include/bits/socket.h:
+
+/usr/include/bits/sockaddr.h:
+
+/usr/include/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/sys/un.h:
 
 /usr/include/errno.h:
 
@@ -516,6 +546,30 @@ service_log.hpp:
 /usr/include/asm-generic/errno.h:
 
 /usr/include/asm-generic/errno-base.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/bits/stat.h:
+
+/usr/include/netdb.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/bits/in.h:
+
+/usr/include/rpc/netdb.h:
+
+/usr/include/bits/siginfo.h:
+
+/usr/include/bits/netdb.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/bits/fcntl.h:
+
+../master/workload.hpp:
+
+service_log.hpp:
 
 /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/algorithm:
 

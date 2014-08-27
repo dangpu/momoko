@@ -138,25 +138,45 @@ bool WorkloadMaster::getTasksBySQL(const string& sql, TASK_MAP& tasks)
 
 bool WorkloadMaster::getLongtermTasks(TASK_MAP& tasks)
 {
-    // 31天到70天随机选择一天
+    // 随机控制
     srand(time(NULL));
-    int i = (rand() % 40) + 31;
-    TimeSpan ts = TimeSpan(i, 0, 0, 0);
-    DateTime dt = m_today+ts;
-    ostringstream oss;
-    oss << "SELECT workload_key, content, source FROM workload_longterm WHERE crawl_day = " << dt.ToString(string("yyyyMMdd"));
-    string longterm_sql = oss.str();
-    return getTasksBySQL(longterm_sql, tasks);
+    int j = rand() % 45;
+
+    if(j < 40)
+    {
+        // 31天到70天随机选择一天
+        srand(time(NULL));
+        int i = (rand() % 40) + 31;
+        TimeSpan ts = TimeSpan(i, 0, 0, 0);
+        DateTime dt = m_today+ts;
+        ostringstream oss;
+        oss << "SELECT workload_key, content, source FROM workload_longterm WHERE crawl_day = " << dt.ToString(string("yyyyMMdd"));
+        string longterm_sql = oss.str();
+        return getTasksBySQL(longterm_sql, tasks);
+    }
+    else
+    {
+        // 另一种方式，5到10天
+        srand(time(NULL));
+        int i = (rand() % 5) + 6;
+        TimeSpan ts = TimeSpan(i, 0, 0, 0);
+        DateTime dt = m_today+ts;
+        ostringstream oss;
+        //oss << "SELECT workload_key, content, source FROM workload_longterm WHERE priority = " << 1 << " and id like '%" << j << "'";
+        oss << "SELECT workload_key, content, source FROM workload_longterm WHERE crawl_day = " << dt.ToString(string("yyyyMMdd"));
+        string longterm_sql = oss.str();
+        return getTasksBySQL(longterm_sql, tasks);
+    }
 }
 
 
 bool WorkloadMaster::getTasks(vector<Task*>& tasks, int count)
 {
-    // 统计未被分配的任务，可以改为成员变量
+    // 统计可分配的任务，可以改为成员变量
     int tasks_size = 0;
     for(TASK_MAP::iterator it = m_tasks.begin(); it != m_tasks.end(); ++it)
     {
-        if( (it->second).m_is_assigned != 1 )
+        if( (it->second).m_is_assigned != 1 && m_forbidden_sources.find((it->second).m_source) == m_forbidden_sources.end() )
             tasks_size++;
     }
     // 未实现随机取
@@ -166,7 +186,7 @@ bool WorkloadMaster::getTasks(vector<Task*>& tasks, int count)
 
         for(TASK_MAP::iterator it = m_tasks.begin(); it != m_tasks.end() && num < count; ++it)
         {
-            if( (it->second).m_is_assigned == 1 )
+            if( (it->second).m_is_assigned == 1 || m_forbidden_sources.find((it->second).m_source) != m_forbidden_sources.end() )
                 continue;
             Task *task = new Task();
             task = &(it->second);
@@ -194,7 +214,7 @@ bool WorkloadMaster::getTasks(vector<Task*>& tasks, int count)
         int num = 0;
         for(TASK_MAP::iterator it = m_tasks.begin(); it != m_tasks.end() && num < count; ++it)
         {
-            if( (it->second).m_is_assigned == 1 )
+            if( (it->second).m_is_assigned == 1 || m_forbidden_sources.find((it->second).m_source) != m_forbidden_sources.end() )
                 continue;
             Task *task = new Task();
             task = &(it->second);
@@ -213,7 +233,7 @@ bool WorkloadMaster::getTask(Task& task)
     int tasks_size = 0;
     for(TASK_MAP::iterator it = m_tasks.begin(); it != m_tasks.end(); ++it)
     {
-        if( (it->second).m_is_assigned != 1 )
+        if( (it->second).m_is_assigned != 1 && m_forbidden_sources.find((it->second).m_source) == m_forbidden_sources.end() )
             tasks_size++;
     }
     
@@ -226,7 +246,7 @@ bool WorkloadMaster::getTask(Task& task)
         int num = 0;
         for(; it != m_tasks.end(); ++it, ++num)
         {
-            if( (it->second).m_is_assigned == 1 )
+            if( (it->second).m_is_assigned == 1 || m_forbidden_sources.find((it->second).m_source) != m_forbidden_sources.end() )
                 continue;
             if(num == i)
             {
@@ -263,7 +283,7 @@ bool WorkloadMaster::getTask(Task& task)
         int num = 0;
         for(; it != m_tasks.end(); ++it, ++num)
         {
-            if( (it->second).m_is_assigned == 1 )
+            if( (it->second).m_is_assigned == 1 || m_forbidden_sources.find((it->second).m_source) != m_forbidden_sources.end() )
                 continue;
             if(num == j)
             {
@@ -374,7 +394,7 @@ bool WorkloadMaster::completeTask(const string& task_str)
         _ERROR("[IN completeTask: TASK PARSE ERROR!]");
         return false;
     }
-    //pthread_mutex_lock(&m_locker);
+    pthread_mutex_lock(&m_locker);
     for(vector<Task*>::iterator it = tasks.begin(); it != tasks.end(); ++it)
     {
         string workload_key = (*it)->m_workload_key;
@@ -404,11 +424,12 @@ bool WorkloadMaster::completeTask(const string& task_str)
             // 任务失败
             ostringstream oss;
             oss << (*it)->m_error;
+            _INFO("[zhangyang, in completeTask: error code is %d !]", (*it)->m_error);
             m_task_status[workload_key][2] = oss.str();
             updateFailedTimes(workload_key);
         }
     }
-    //pthread_mutex_unlock(&m_locker);
+    pthread_mutex_unlock(&m_locker);
     return true;
 }
 
@@ -464,6 +485,10 @@ void  WorkloadMaster::monitorTasks(int timeslot)
         Json::Value source_error_map = error_map[source];
         source_error_map[error_type] = source_error_map.get(error_type, 0).asInt() + 1;
         error_map[source] = source_error_map;
+        // 统计信息
+        Json::Value stat_error_map = error_map["statistic"];
+        stat_error_map[error_type] = stat_error_map.get(error_type, 0).asInt() + 1;
+        error_map["statistic"] = stat_error_map;
         /*
         if(!source_error_map.isMember(error_type))
         {
@@ -474,6 +499,7 @@ void  WorkloadMaster::monitorTasks(int timeslot)
         }
         */
     }
+
     Json::FastWriter jfw;
     string error_info = jfw.write(error_map);
     ostringstream oss3;

@@ -9,6 +9,7 @@ Master::Master()
 {
     m_last_id = "0";
     m_locker = PTHREAD_MUTEX_INITIALIZER;
+    m_validation_master = new Validation();
 }
 
 Master::~Master()
@@ -43,7 +44,7 @@ string Master::registerSlave(const string& slave_name, const string& server, con
     
 
     if(recv_realtime_req)
-        m_slave_list.insert(id);
+        m_slave_list.insert(server_ip);
     pthread_mutex_unlock(&m_locker);
     return id;
 }
@@ -140,4 +141,12 @@ void Master::monitorSlave()
         pthread_mutex_unlock(&m_locker);
     }
     out.close();
+}
+
+string Master::validate(const string& req, const string& type)
+{
+    string res = "";
+    m_validation_master->selectSlaveIp(m_slave_list);
+    m_validation_master->handleValidReq(req, type, res);
+    return res;
 }

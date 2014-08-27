@@ -5,7 +5,7 @@ int main()
     Validation val;
     string req = "MU8667|PEK|CDG|20140911_09:05|经济舱|ctrip";
     string res = "";
-    val.registerSlave("42.96.192.130:8818", true);
+    val.registerSlave("115.29.78.222:8802", true);
     val.handleValidReq(req, "flight", res);
     
     cout << "res is:" << res << endl;

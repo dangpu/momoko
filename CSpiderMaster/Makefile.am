@@ -12,5 +12,5 @@ Server/configuration.hpp	\
 Server/http_server.hpp	\
 Server/query_processor.hpp	
 
-SUBDIRS=@PACKAGE_DEPENDENCIES@ json master Server
+SUBDIRS=@PACKAGE_DEPENDENCIES@ json Client master Server
 export @MODULE_ROOT_VARS@ BUILD_DEPENDENCIES

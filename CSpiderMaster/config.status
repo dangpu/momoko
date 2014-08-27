@@ -322,7 +322,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile json/Makefile common/Makefile master/Makefile Server/Makefile"
+config_files=" Makefile json/Makefile common/Makefile Client/Makefile master/Makefile Server/Makefile"
 config_headers=" config-dummy.h"
 config_commands=" depfiles libtool"
 
@@ -711,6 +711,7 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "json/Makefile") CONFIG_FILES="$CONFIG_FILES json/Makefile" ;;
     "common/Makefile") CONFIG_FILES="$CONFIG_FILES common/Makefile" ;;
+    "Client/Makefile") CONFIG_FILES="$CONFIG_FILES Client/Makefile" ;;
     "master/Makefile") CONFIG_FILES="$CONFIG_FILES master/Makefile" ;;
     "Server/Makefile") CONFIG_FILES="$CONFIG_FILES Server/Makefile" ;;
 

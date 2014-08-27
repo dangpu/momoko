@@ -68,6 +68,7 @@ AC_CONFIG_FILES([
 	Makefile
 	json/Makefile
     common/Makefile
+    Client/Makefile
     master/Makefile
 	Server/Makefile
 ])

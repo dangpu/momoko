@@ -302,7 +302,7 @@ Server/configuration.hpp	\
 Server/http_server.hpp	\
 Server/query_processor.hpp	
 
-SUBDIRS = @PACKAGE_DEPENDENCIES@ json master Server
+SUBDIRS = @PACKAGE_DEPENDENCIES@ json Client master Server
 all: $(BUILT_SOURCES) config-dummy.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 

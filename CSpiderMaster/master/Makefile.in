@@ -84,9 +84,14 @@ LTLIBRARIES = $(lib_LTLIBRARIES)
 libdata_la_DEPENDENCIES = ../json/libjson.la ../common/libcommon.la
 am_libdata_la_OBJECTS = data.lo
 libdata_la_OBJECTS = $(am_libdata_la_OBJECTS)
-libmaster_la_DEPENDENCIES = libdata.la ../common/libcommon.la
+libmaster_la_DEPENDENCIES = libdata.la ../common/libcommon.la \
+	libvalidation.la
 am_libmaster_la_OBJECTS = master.lo
 libmaster_la_OBJECTS = $(am_libmaster_la_OBJECTS)
+libvalidation_la_DEPENDENCIES = ../Client/libclient.la \
+	../common/libcommon.la
+am_libvalidation_la_OBJECTS = validation.lo
+libvalidation_la_OBJECTS = $(am_libvalidation_la_OBJECTS)
 libworkload_la_DEPENDENCIES = libdata.la ../common/libcommon.la
 am_libworkload_la_OBJECTS = workload.lo
 libworkload_la_OBJECTS = $(am_libworkload_la_OBJECTS)
@@ -108,9 +113,11 @@ CXXLINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(libdata_la_SOURCES) $(libmaster_la_SOURCES) \
-	$(libworkload_la_SOURCES) $(test_SOURCES)
+	$(libvalidation_la_SOURCES) $(libworkload_la_SOURCES) \
+	$(test_SOURCES)
 DIST_SOURCES = $(libdata_la_SOURCES) $(libmaster_la_SOURCES) \
-	$(libworkload_la_SOURCES) $(test_SOURCES)
+	$(libvalidation_la_SOURCES) $(libworkload_la_SOURCES) \
+	$(test_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -270,13 +277,16 @@ collectHEADERS_T = \
 	$(addprefix $(collectinclude_DIR)/$(PACKAGE)/, $(nobase_pkginclude_HEADERS))
 
 lib_LIBRARIES = 
-lib_LTLIBRARIES = libdata.la libmaster.la libworkload.la
+lib_LTLIBRARIES = libdata.la libworkload.la libvalidation.la \
+	libmaster.la
 libdata_la_SOURCES = data.cpp
 libdata_la_LIBADD = -lpthread ../json/libjson.la ../common/libcommon.la
-libmaster_la_SOURCES = master.cpp
-libmaster_la_LIBADD = -lpthread libdata.la ../common/libcommon.la
 libworkload_la_SOURCES = workload.cpp
 libworkload_la_LIBADD = -lpthread libdata.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
+libvalidation_la_SOURCES = validation.cpp
+libvalidation_la_LIBADD = -lpthread ../Client/libclient.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
+libmaster_la_SOURCES = master.cpp
+libmaster_la_LIBADD = -lpthread libdata.la ../common/libcommon.la libvalidation.la
 test_SOURCES = main.cpp CommonFuc.cpp
 test_LDADD = -ldata libdata.la -lmaster libmaster.la -lworkload libworkload.la
 all: $(BUILT_SOURCES)
@@ -381,6 +391,8 @@ libdata.la: $(libdata_la_OBJECTS) $(libdata_la_DEPENDENCIES)
 	$(CXXLINK) -rpath $(libdir) $(libdata_la_OBJECTS) $(libdata_la_LIBADD) $(LIBS)
 libmaster.la: $(libmaster_la_OBJECTS) $(libmaster_la_DEPENDENCIES) 
 	$(CXXLINK) -rpath $(libdir) $(libmaster_la_OBJECTS) $(libmaster_la_LIBADD) $(LIBS)
+libvalidation.la: $(libvalidation_la_OBJECTS) $(libvalidation_la_DEPENDENCIES) 
+	$(CXXLINK) -rpath $(libdir) $(libvalidation_la_OBJECTS) $(libvalidation_la_LIBADD) $(LIBS)
 libworkload.la: $(libworkload_la_OBJECTS) $(libworkload_la_DEPENDENCIES) 
 	$(CXXLINK) -rpath $(libdir) $(libworkload_la_OBJECTS) $(libworkload_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
@@ -440,6 +452,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/data.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/master.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/validation.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/workload.Plo@am__quote@
 
 .cpp.o:

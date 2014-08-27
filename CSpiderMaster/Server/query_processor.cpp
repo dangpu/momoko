@@ -404,6 +404,31 @@ int Query_Processor::svc()
 				_INFO("[task size is : %d]", m_workload->m_tasks.size());
                 res = "update workload ok!";
             }
+            else if(szOrigInput == "validate")
+            {
+                string req = get_param("req=", worker->uri);
+                string type = get_param("type=", worker->uri);
+                res = m_master->validate(req, type);
+            }
+            else if(szOrigInput == "forbid_source")
+            {
+                string source = get_param("source=", worker->uri);
+                string action = get_param("action=", worker->uri);
+                if(action == "forbid")
+                {
+                    m_workload->addForbiddenSource(source);
+                    res = "action completed!";
+                }
+                else if(action == "unforbid")
+                {
+                    m_workload->delForbiddenSource(source);
+                    res = "action completed!";
+                }
+                else
+                {
+                    res = "wrong action!";
+                }
+            }
 
 			//clock_t end = clock();
 			//double dbWaste = 1.0f*(end-start);

@@ -12,6 +12,7 @@
 #include <tr1/unordered_set>
 #include "CommonFuc.hpp"
 #include "data.hpp"
+#include "validation.hpp"
 using namespace std;
 
 //class Master;
@@ -88,6 +89,13 @@ class Master
             return m_slave_map;
         }
 
+        /* 验证
+         * @param req, 待验证请求
+         * @param type, 验证请求类型
+         * @return, 请求返回内容
+         */
+        string validate(const string& req, const string& type);
+
     public:
         // 所有slave信息
         tr1::unordered_map<string, SlaveInfo> m_slave_map;
@@ -95,6 +103,8 @@ class Master
         tr1::unordered_set<string> m_slave_list;
         string m_last_id;
         pthread_mutex_t m_locker;
+
+        Validation* m_validation_master;
 
 };
 

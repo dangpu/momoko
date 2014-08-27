@@ -8,13 +8,17 @@ lib_LTLIBRARIES+=libdata.la
 libdata_la_SOURCES=data.cpp
 libdata_la_LIBADD= -lpthread ../json/libjson.la ../common/libcommon.la
 
-lib_LTLIBRARIES+=libmaster.la
-libmaster_la_SOURCES=master.cpp
-libmaster_la_LIBADD= -lpthread libdata.la ../common/libcommon.la
-
 lib_LTLIBRARIES+=libworkload.la
 libworkload_la_SOURCES=workload.cpp
 libworkload_la_LIBADD= -lpthread libdata.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
+
+lib_LTLIBRARIES+=libvalidation.la
+libvalidation_la_SOURCES=validation.cpp
+libvalidation_la_LIBADD= -lpthread ../Client/libclient.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
+
+lib_LTLIBRARIES+=libmaster.la
+libmaster_la_SOURCES=master.cpp
+libmaster_la_LIBADD= -lpthread libdata.la ../common/libcommon.la libvalidation.la
 
 bin_PROGRAMS+=test
 test_SOURCES=main.cpp CommonFuc.cpp
