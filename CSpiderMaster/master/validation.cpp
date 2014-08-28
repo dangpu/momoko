@@ -31,7 +31,7 @@ bool Validation::handleValidReq(const string& req, const string& type, string& r
             _ERROR("[Validation ERROR: request fields %d is wrong!]", vec.size());
             return false;
         }
-        string source = vec[5];
+        string source = vec[5] + "Flight";
         string flight_req = "validate?req=" + COMMON::url_encode(req) + "&source=" + COMMON::url_encode(source);
         repostValidReq(flight_req, res);
     }
