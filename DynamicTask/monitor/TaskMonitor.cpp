@@ -14,7 +14,7 @@
 #define ROOM_NUM_FIELDS             8
 // 监控表字段数
 #define ROOM_MONITOR_NUM_FIELDS   7
-#define FLIGHT_MONITOR_NUM_FIELDS   9
+#define FLIGHT_MONITOR_NUM_FIELDS   7
 
 
 TaskMonitor::TaskMonitor()
@@ -60,7 +60,7 @@ bool TaskMonitor::createMonitorTable(const string& host, const string& db, const
     }
     // 建flight_monitor
     ostringstream oss;
-    oss << "create table if not exists flight_monitor (id int unsigned not null auto_increment primary key, workload_key varchar(128) NOT NULL UNIQUE, source varchar(24), dept_id varchar(8), dest_id varchar(8), last_updatetime varchar(64), "
+    oss << "create table if not exists flight_monitor (id int unsigned not null auto_increment primary key, workload_key varchar(128) NOT NULL UNIQUE, source varchar(24), last_updatetime varchar(64), "
         << "last_price varchar(128), updatetime varchar(64), price varchar(128), price_wave varchar(24)) default charset=utf8;";
     string create_flight_monitor_sql = oss.str();
     int t = mysql_query(mysql, create_flight_monitor_sql.c_str());
@@ -296,7 +296,7 @@ bool TaskMonitor::writeFlight()
     string db = "monitor";
     string user = "root";
     string passwd = "wangjingsoho";
-    string sql = "select workload_key, source, last_updatetime, last_price, updatetime, price, price_wave, dept_id, dest_id from flight_monitor";
+    string sql = "select workload_key, source, last_updatetime, last_price, updatetime, price, price_wave from flight_monitor";
     if( !readMonitorData(m_flight_monitor_data, sql, FLIGHT_MONITOR_NUM_FIELDS, host, db, user, passwd) )
     {
         _ERROR("IN writeFlight, CANNOT read monitor data!");
@@ -502,7 +502,6 @@ bool TaskMonitor::writeRoom()
         _ERROR("IN writeFlight, CANNOT read monitor data!");
         return false;
     }
-
     // 插入crawl数据
     MONITOR_DATA diff_monitor_data;
     CRAWL_DATA::iterator it = m_room_crawl_data.begin();
@@ -531,7 +530,7 @@ bool TaskMonitor::writeRoom()
         }
         //cout << workload_key << "\t" << m_room_monitor_data[workload_key][2] << "\t" << m_room_monitor_data[workload_key][3] << "\t" << m_room_monitor_data[workload_key][4] << "\t" << m_room_monitor_data[workload_key][5] << "\t" << m_room_monitor_data[workload_key][6] << "\t" << m_room_monitor_data[workload_key][7] << endl;
     }
-    
+    cout << "diff_monitor_data room is" << diff_monitor_data.size() << endl;
     updateRoomMonitorData(diff_monitor_data, host, db, user, passwd);
 
     return true;
