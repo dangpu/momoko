@@ -48,11 +48,15 @@ class TaskMonitor
     private:
         bool connect2DB(MYSQL* m_mysql, const string& host, const string& db, const string& user, const string& passwd);
         bool createMonitorTable(const string& host, const string& db, const string& user, const string& passwd);
-        void insertMonitorData(const string& workload, const string& source, const string& updatetime, const string& price_str);
+        void insertFlightMonitorData(const MONITOR_DATA& monitor_data, MONITOR_DATA& diff_monitor_data, const string& workload, const string& source, const string& updatetime, const string& price_str, const string& dept_id, const string& dest_id);
+        void insertHotelMonitorData(const MONITOR_DATA& monitor_data, MONITOR_DATA& diff_monitor_data, const string& workload, const string& source, const string& updatetime, const string& price_str);
         bool readMonitorData(MONITOR_DATA& monitor_data, const string& sql, int num_fields, const string& host, const string& db, const string& user, const string& passwd);
+        bool updateFlightMonitorData(const MONITOR_DATA& diff_monitor_data, const string& host, const string& db, const string& user, const string& passwd);
+        bool updateRoomMonitorData(const MONITOR_DATA& diff_monitor_data, const string& host, const string& db, const string& user, const string& passwd);
         string serializePrice(const Json::Value& price_value);
         bool parsePrice(const string& price_str, Json::Value& price_value);
         float getPriceWave(const string& last_price_str, const string& price_str);
+        
         inline void stripDay(string& day)
         {
             string year = day.substr(0, 4);
@@ -61,8 +65,10 @@ class TaskMonitor
             day = year + month + date;
         }
     private:
-        CRAWL_DATA m_crawl_data;
-        MONITOR_DATA m_monitor_data;
+        CRAWL_DATA m_flight_crawl_data;
+        CRAWL_DATA m_room_crawl_data;
+        MONITOR_DATA m_flight_monitor_data;
+        MONITOR_DATA m_room_monitor_data;
         KeyGenerator* m_key_generator;
 };
 

@@ -8,8 +8,8 @@ lib_LTLIBRARIES+=libmonitor.la
 libmonitor_la_SOURCES=TaskMonitor.cpp
 libmonitor_la_LIBADD=../key/libkey.la ../json/libjson.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
 
-bin_PROGRAMS+=test
-test_SOURCES=test.cpp
-test_LDADD=-lmonitor libmonitor.la
+bin_PROGRAMS+=monitor
+monitor_SOURCES=main.cpp
+monitor_LDADD=-lmonitor libmonitor.la
 
 AM_CPPFLAGS+=-DSS_DOCID_BITS=256

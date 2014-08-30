@@ -6,7 +6,7 @@
 
 KeyGenerator::KeyGenerator()
 {
-    if( !loadAirport() || !loadFlightSource() || !loadCity() )
+    if( !loadFlightSource() || !loadCity() )
     {
         _ERROR("IN keyGenerator: load data error!");
     }
@@ -221,7 +221,7 @@ string KeyGenerator::getKeyFromRule(const string& rule, const string& spliter, c
 {
     if(type != "oneway" && type != "round")
     {
-        _ERROR("IN getKeyFromRule, wrong type!");
+        _ERROR("IN getKeyFromRule, wrong type! TYPE: %s", type.c_str());
         return "";
     }
 
@@ -240,12 +240,12 @@ string KeyGenerator::getKeyFromRule(const string& rule, const string& spliter, c
     for(vector<string>::iterator it = (keys).begin(); it != (keys).end(); ++it)
     {
         string key = *it;
-        if( StringEndsWith(key, "1") )
+        if( key[key.length()-1] == '1' )
         {
             key = key.substr(0, key.length()-1);
             result += m_airport[dept_id][key] + spliter;
         }
-        else if( StringEndsWith(key, "2") )
+        else if( key[key.length()-1] == '2' )
         {
             key = key.substr(0, key.length()-1);
             result += m_airport[dest_id][key] + spliter;
@@ -260,22 +260,29 @@ string KeyGenerator::getKeyFromRule(const string& rule, const string& spliter, c
 
 string KeyGenerator::getFlightOnewayKey(const string& source, const string& dept_id, const string& dest_id, const string& dept_day)
 {
+    /*  根据rule生成workload_content
+     *
     string rule = m_flight_source[source]["rule"];
     string spliter = m_flight_source[source]["spliter"];
     string type = m_flight_source[source]["type"];
     string workload_key = getKeyFromRule(rule, spliter, type, dept_id, dest_id);
     workload_key += dept_day;
+    */
+    string workload_key = dept_id + "_" + dest_id + "_" + m_flight_source[source]["name"] + "_" + dept_day;
     return workload_key;
 }
 
 string KeyGenerator::getFlightRoundKey(const string& source, const string& dept_id, const string& dest_id, const string& dept_day, const string& dest_day)
 {
+    /*
     string rule = m_flight_source[source]["rule"];
     string spliter = m_flight_source[source]["spliter"];
     string type = m_flight_source[source]["type"];
     string workload_key = getKeyFromRule(rule, spliter, type, dept_id, dest_id);
     workload_key += dept_day;
     workload_key += spliter + dest_day;
+    */
+    string workload_key = dept_id + "_" + dest_id + "_" + m_flight_source[source]["name"] + "_" + dept_day + "_" + dest_day;
     return workload_key;
 }
 
@@ -289,7 +296,16 @@ string KeyGenerator::getRoomKey(const string& source, const string& city_name, c
     int days = (int(checkout_seconds) - int(checkin_seconds)) / 86400;
     
     // 按酒店规则生成workload_key
-    ostringstream oss;
-    oss << source << "&" << city_en << "&" << hotel_id << "&" << days << "&" << checkin_day;
-    return oss.str();
+    if(source == "biyi" || source == "agoda")
+    {
+        ostringstream oss1;
+        oss1 << city_en << "|" << "NULL" << "|" << source << "|" << days << "|" << checkin_day;
+        return oss1.str();
+    }
+    else
+    {
+        ostringstream oss2;
+        oss2 << "NULL" << "|" << hotel_id << "|" << source << "|" << days << "|" << checkin_day;
+        return oss2.str();
+    }
 }

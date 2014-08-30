@@ -46,7 +46,7 @@ build_triplet = x86_64-unknown-linux-gnu
 host_triplet = x86_64-unknown-linux-gnu
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(top_srcdir)/collect.mk $(top_srcdir)/common.mk
-bin_PROGRAMS = test$(EXEEXT)
+bin_PROGRAMS = monitor$(EXEEXT)
 subdir = monitor
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -86,9 +86,9 @@ libmonitor_la_DEPENDENCIES = ../key/libkey.la ../json/libjson.la \
 am_libmonitor_la_OBJECTS = TaskMonitor.lo
 libmonitor_la_OBJECTS = $(am_libmonitor_la_OBJECTS)
 PROGRAMS = $(bin_PROGRAMS)
-am_test_OBJECTS = test.$(OBJEXT)
-test_OBJECTS = $(am_test_OBJECTS)
-test_DEPENDENCIES = libmonitor.la
+am_monitor_OBJECTS = main.$(OBJEXT)
+monitor_OBJECTS = $(am_monitor_OBJECTS)
+monitor_DEPENDENCIES = libmonitor.la
 DEFAULT_INCLUDES = -I. -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/_aux/depcomp
 am__depfiles_maybe = depfiles
@@ -102,8 +102,8 @@ CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libmonitor_la_SOURCES) $(test_SOURCES)
-DIST_SOURCES = $(libmonitor_la_SOURCES) $(test_SOURCES)
+SOURCES = $(libmonitor_la_SOURCES) $(monitor_SOURCES)
+DIST_SOURCES = $(libmonitor_la_SOURCES) $(monitor_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -266,8 +266,8 @@ lib_LIBRARIES =
 lib_LTLIBRARIES = libmonitor.la
 libmonitor_la_SOURCES = TaskMonitor.cpp
 libmonitor_la_LIBADD = ../key/libkey.la ../json/libjson.la ../common/libcommon.la -L/usr/lib64/mysql/ -lmysqlclient
-test_SOURCES = test.cpp
-test_LDADD = -lmonitor libmonitor.la
+monitor_SOURCES = main.cpp
+monitor_LDADD = -lmonitor libmonitor.la
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -411,9 +411,9 @@ clean-binPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
-test$(EXEEXT): $(test_OBJECTS) $(test_DEPENDENCIES) 
-	@rm -f test$(EXEEXT)
-	$(CXXLINK) $(test_OBJECTS) $(test_LDADD) $(LIBS)
+monitor$(EXEEXT): $(monitor_OBJECTS) $(monitor_DEPENDENCIES) 
+	@rm -f monitor$(EXEEXT)
+	$(CXXLINK) $(monitor_OBJECTS) $(monitor_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -422,7 +422,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/TaskMonitor.Plo
-include ./$(DEPDIR)/test.Po
+include ./$(DEPDIR)/main.Po
 
 .cpp.o:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
