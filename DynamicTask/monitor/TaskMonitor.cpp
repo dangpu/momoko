@@ -324,7 +324,7 @@ bool TaskMonitor::writeFlight()
             workload_key = m_key_generator->getFlightOnewayKey(source, dept_id, dest_id, dept_day);
             cout << workload_key << " " << dept_id << " " << dest_id << endl;
             // 插入
-            insertFlightMonitorData(m_flight_monitor_data, diff_monitor_data, workload_key, source, updatetime, price_str, dept_id, dest_id);
+            insertMonitorData(m_flight_monitor_data, diff_monitor_data, workload_key, source, updatetime, price_str);
         }
         else if( FLIGHT_ROUND_NUM_FIELDS-2 == crawl_vec.size() )
         {
@@ -339,7 +339,7 @@ bool TaskMonitor::writeFlight()
             // 生成workload_key
             workload_key = m_key_generator->getFlightRoundKey(source, dept_id, dest_id, dept_day, dest_day);
             // 插入
-            insertFlightMonitorData(m_flight_monitor_data, diff_monitor_data, workload_key, source, updatetime, price_str, dept_id, dest_id);
+            insertMonitorData(m_flight_monitor_data, diff_monitor_data, workload_key, source, updatetime, price_str);
         }
         else
         {
@@ -522,7 +522,7 @@ bool TaskMonitor::writeRoom()
             // 生成workload_key
             workload_key = m_key_generator->getRoomKey(source, city, source_hotelid, checkin_day, checkout_day);
             // 插入
-            insertHotelMonitorData(m_room_monitor_data, diff_monitor_data, workload_key, source, updatetime, price_str);
+            insertMonitorData(m_room_monitor_data, diff_monitor_data, workload_key, source, updatetime, price_str);
         }
         else
         {
@@ -538,7 +538,7 @@ bool TaskMonitor::writeRoom()
 }
 
 
-void TaskMonitor::insertHotelMonitorData(const MONITOR_DATA& monitor_data, MONITOR_DATA& diff_monitor_data, const string& workload_key, const string& source, const string& updatetime, const string& price_str)
+void TaskMonitor::insertMonitorData(const MONITOR_DATA& monitor_data, MONITOR_DATA& diff_monitor_data, const string& workload_key, const string& source, const string& updatetime, const string& price_str)
 {
     // 插入
     MONITOR_DATA::const_iterator it = monitor_data.find(workload_key);
@@ -569,45 +569,6 @@ void TaskMonitor::insertHotelMonitorData(const MONITOR_DATA& monitor_data, MONIT
        ostringstream oss;
        oss << getPriceWave("NULL", price_str);
        monitor_vec.push_back( oss.str() );
-       //monitor_vec.push_back(str1);
-       //monitor_vec.push_back(str2);
-       diff_monitor_data[workload_key] = monitor_vec;
-    }
-}
-
-void TaskMonitor::insertFlightMonitorData(const MONITOR_DATA& monitor_data, MONITOR_DATA& diff_monitor_data, const string& workload_key, const string& source, const string& updatetime, const string& price_str, const string& dept_id, const string& dest_id)
-{
-    // 插入
-    MONITOR_DATA::const_iterator it = monitor_data.find(workload_key);
-    if( it != monitor_data.end() )
-    {
-        // 存在该key， 更新
-        vector<string> monitor_vec = it->second;
-        cout << "ZHANGYANG " << workload_key << "\t" << monitor_vec[2] << "\t" << updatetime << endl;
-        monitor_vec[2] = monitor_vec[4];                                // 更新last_updatetime
-        monitor_vec[3] = monitor_vec[5];                                // 更新last_price
-        monitor_vec[4] = updatetime;                                    // 更新updatetime
-        monitor_vec[5] = price_str;                                     // 更新price
-        ostringstream oss;
-        oss << getPriceWave(monitor_vec[3], monitor_vec[5]);
-        monitor_vec[6] = oss.str();                                     // 更新price变动
-        diff_monitor_data[workload_key] = monitor_vec;                     // 更新monitor_data
-    }
-    else
-    {
-       // 不存在该key， 插入
-       vector<string> monitor_vec;
-       monitor_vec.push_back(workload_key);
-       monitor_vec.push_back(source);
-       monitor_vec.push_back("NULL");
-       monitor_vec.push_back("NULL");
-       monitor_vec.push_back(updatetime);
-       monitor_vec.push_back(price_str);
-       ostringstream oss;
-       oss << getPriceWave("NULL", price_str);
-       monitor_vec.push_back( oss.str() );
-       monitor_vec.push_back(dept_id);
-       monitor_vec.push_back(dest_id);
        diff_monitor_data[workload_key] = monitor_vec;
     }
 }
@@ -671,7 +632,7 @@ bool TaskMonitor::updateFlightMonitorData(const MONITOR_DATA& diff_monitor_data,
         return false;
     }
     // 生成更新sql
-    string sql = "REPLACE INTO flight_monitor (workload_key, source, dept_id, dest_id, last_updatetime, last_price, updatetime, price, price_wave) VALUES ";
+    string sql = "REPLACE INTO flight_monitor (workload_key, source, last_updatetime, last_price, updatetime, price, price_wave) VALUES ";
     ostringstream oss;
     for(MONITOR_DATA::const_iterator it = diff_monitor_data.begin(); it != diff_monitor_data.end(); ++it)
     {
@@ -685,7 +646,7 @@ bool TaskMonitor::updateFlightMonitorData(const MONITOR_DATA& diff_monitor_data,
         string updatetime = flight_monitor_vec[4];
         string price = flight_monitor_vec[5];
         string price_wave = flight_monitor_vec[6];
-        oss << "('" << workload_key << "','" << source << "','" << dept_id << "','" << dest_id << "','" << last_updatetime << "','" << last_price << "','" << updatetime << "','" << price << "','" << price_wave << "'),";
+        oss << "('" << workload_key << "','" << source << "','" << last_updatetime << "','" << last_price << "','" << updatetime << "','" << price << "','" << price_wave << "'),";
     }
     sql += oss.str();
     sql.erase(sql.find_last_of(','), 1);
